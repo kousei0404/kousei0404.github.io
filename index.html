@@ -2,297 +2,429 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Portfolio</title>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-body {
-  font-family: "Noto Sans JP", sans-serif;
-  color: #263247;
-  background: #f7f9fc;
-  line-height: 1.8;
-}
-header {
-  position: sticky;
-  top: 0;
-  background: rgba(255,255,255,.95);
-  padding: 18px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 12px #0000000a;
-  z-index: 10;
-}
-.logo {
-  font-weight: bold;
-  font-size: 21px;
-  color: #234477;
-}
-nav a {
-  text-decoration: none;
-  color: #263247;
-  margin-left: 20px;
-  font-size: 13px;
-}
-nav a:hover { color: #477bc0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KOUSEI TAKASUのポートフォリオサイト">
+  <title>KOUSEI TAKASU | Portfolio</title>
 
-.hero {
-  min-height: 560px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(135deg,#e8f0fb,#f8faff);
-}
-.hero .small {
-  color: #5279ac;
-  letter-spacing: 4px;
-  font-size: 13px;
-}
-.hero h1 {
-  font-size: clamp(34px,6vw,58px);
-  margin: 18px 0;
-  color: #203b64;
-}
-.hero p {
-  color: #64748b;
-}
-.btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 12px 35px;
-  border-radius: 30px;
-  background: #294d7e;
-  color: white;
-  text-decoration: none;
-  transition: .3s;
-}
-.btn:hover {
-  background: #477bc0;
-  transform: translateY(-3px);
-}
-section {
-  max-width: 1000px;
-  margin: auto;
-  padding: 85px 25px;
-}
-.section-title {
-  text-align: center;
-  margin-bottom: 45px;
-}
-.section-title h2 {
-  color: #294d7e;
-  font-size: 30px;
-}
-.section-title p {
-  color: #91a1b5;
-  font-size: 12px;
-  letter-spacing: 3px;
-}
-.profile {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 35px;
-  align-items: center;
-}
-.photo {
-  background: #e3ebf6;
-  border-radius: 20px;
-  min-height: 230px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #7890af;
-  font-size: 14px;
-}
-.card {
-  background: white;
-  border-radius: 16px;
-  padding: 30px;
-  margin-bottom: 20px;
-  box-shadow: 0 5px 25px #1d35570a;
-}
-.card h3 {
-  color: #294d7e;
-  margin-bottom: 12px;
-}
-.card p { color: #64748b; }
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.skills span {
-  background: #e8eff9;
-  color: #355b8c;
-  padding: 9px 18px;
-  border-radius: 30px;
-  font-size: 14px;
-}
-.contact {
-  text-align: center;
-  background: #eaf0f9;
-  border-radius: 20px;
-  padding: 55px 20px;
-}
-footer {
-  text-align: center;
-  padding: 25px;
-  background: #203b64;
-  color: white;
-  font-size: 12px;
-}
-@media(max-width:700px) {
-  header {
-    flex-direction: column;
-    gap: 10px;
-  }
-  nav a {
-    margin: 0 7px;
-    font-size: 11px;
-  }
-  .profile {
-    grid-template-columns: 1fr;
-  }
-  .photo { min-height: 180px; }
-  section { padding: 60px 20px; }
-}
-</style>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #68738a;
+      --accent: #4776e6;
+      --accent-light: #eaf0ff;
+      --line: #e5eaf2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "Noto Sans JP", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 105px 0 95px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+    }
+
+    h1 {
+      margin: 12px 0 8px;
+      font-size: clamp(2.8rem, 8vw, 5.8rem);
+      line-height: 1.05;
+      letter-spacing: -.055em;
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin: 22px 0 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 999px;
+      color: white;
+      background: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 8px 22px rgba(71,118,230,.2);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-title {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      letter-spacing: -.03em;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      margin: 0 0 28px;
+    }
+
+    .panel, .work-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 10px 35px rgba(30,50,90,.04);
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+    }
+
+    .profile-grid p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      background: var(--accent-light);
+      color: #345fc2;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: .86rem;
+      font-weight: 650;
+    }
+
+    .works {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .work-card h3 {
+      margin: 0 0 8px;
+    }
+
+    .work-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .work-label {
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .contact {
+      text-align: center;
+      background: #172033;
+      color: white;
+      border-radius: 24px;
+      padding: 48px 24px;
+    }
+
+    .contact p {
+      color: #c2cada;
+      margin-bottom: 24px;
+    }
+
+    footer {
+      padding: 28px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: .85rem;
+    }
+
+    /* スマートフォン対応 */
+    @media (max-width: 700px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+        gap: 8px;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        font-size: .85rem;
+      }
+
+      .hero {
+        padding: 76px 0 65px;
+      }
+
+      section {
+        padding: 52px 0;
+      }
+
+      .profile-grid, .works {
+        grid-template-columns: 1fr;
+      }
+
+      .panel, .work-card {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <div class="logo">MY PORTFOLIO</div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#pr">PR</a>
-    <a href="#activity">Activity</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <!-- ヘッダー -->
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top">KOUSEI TAKASU</a>
 
-<div class="hero">
-  <p class="small">KOUSEI TAKASU'S PORTFOLIO</p>
-  <p>自分らしさと可能性を伝えるポートフォリオ</p>
-  <a href="#about" class="btn">プロフィールを見る</a>
-</div>
+      <nav aria-label="メインナビゲーション">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#works">Works</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<section id="about">
-  <div class="section-title">
-    <h2>About Me</h2>
-    <p>自己紹介</p>
-  </div>
-  <div class="profile">
-    <div class="photo">ここにプロフィール写真</div>
-    <div>
-      <div class="card">
-        <h3>プロフィール</h3>
-        <p>
-          名前：あなたの名前<br>
-          大学：〇〇大学<br>
-          学部：〇〇学部<br>
-          学年：〇年生<br>
-          出身地：〇〇県
-        </p>
-      </div>
+  <main id="top">
+
+    <!-- トップページ -->
+    <div class="wrap hero">
+      <div class="eyebrow">PORTFOLIO</div>
+
+      <h1>KOUSEI<br>TAKASU</h1>
+
       <p>
-        はじめまして。私のポートフォリオをご覧いただきありがとうございます。
-        これまでの経験や学び、自分の強みについて紹介します。
+        Web制作や3DCG、プログラミングなど、
+        さまざまな技術を使ったものづくりに取り組んでいます。
+        アイデアを形にし、使う人にとって分かりやすく、
+        使いやすい表現を目指しています。
       </p>
+
+      <a class="button" href="#works">作品を見る</a>
     </div>
-  </div>
-</section>
 
-<section id="pr">
-  <div class="section-title">
-    <h2>My Strength</h2>
-    <p>自己PR</p>
-  </div>
-  <div class="card">
-    <h3>私の強みは〇〇力です。</h3>
-    <p>
-      私の強みは、目標に向かって最後まで努力できることです。
-      これまでの経験を通して、課題を見つけ、自分で考えて行動することの
-      大切さを学びました。
-      今後もこの強みを活かし、周囲と協力しながら成長していきたいです。
-    </p>
-  </div>
-</section>
+    <!-- 自己紹介 -->
+    <section id="about">
+      <div class="wrap">
 
-<section id="activity">
-  <div class="section-title">
-    <h2>My Activity</h2>
-    <p>学生時代に力を入れたこと</p>
-  </div>
-  <div class="card">
-    <h3>学生時代に取り組んだこと</h3>
-    <p>
-      学生時代は〇〇に力を入れて取り組みました。
-      その中で〇〇という課題に直面しましたが、
-      〇〇という工夫を行い、改善することができました。
-      この経験から、継続力と課題解決力を身につけました。
-    </p>
-  </div>
-  <div class="card">
-    <h3>その他の活動・経験</h3>
-    <p>
-      アルバイト、サークル、ボランティア、インターンシップなど、
-      これまでの経験を記載します。
-    </p>
-  </div>
-</section>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-lead">自己紹介</p>
 
-<section id="skills">
-  <div class="section-title">
-    <h2>My Skills</h2>
-    <p>スキル・資格</p>
-  </div>
-  <div class="card">
-    <h3>スキル</h3>
-    <div class="skills">
-      <span>コミュニケーション力</span>
-      <span>協調性</span>
-      <span>課題解決力</span>
-      <span>継続力</span>
-      <span>PCスキル</span>
+        <div class="profile-grid">
+
+          <div class="panel">
+            <h3>こんにちは、KOUSEI TAKASUです。</h3>
+
+            <p>
+              メディア情報分野を学びながら、
+              Webサイト開発や3DCG、ゲーム制作などに
+              取り組んでいます。
+              制作するときは、自分だけでなく、
+              初めて触れる人にも内容が伝わることを
+              大切にしています。
+            </p>
+          </div>
+
+          <div class="panel">
+            <h3>Interest</h3>
+
+            <p>
+              興味のある分野や、これから深めていきたいこと
+            </p>
+
+            <div class="tag-list">
+              <span class="tag">Web Development</span>
+              <span class="tag">3DCG</span>
+              <span class="tag">AI / NLP</span>
+              <span class="tag">Game Development</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- スキル -->
+    <section id="skills">
+      <div class="wrap">
+
+        <h2 class="section-title">Skills</h2>
+        <p class="section-lead">
+          学習・制作で使用している技術
+        </p>
+
+        <div class="panel">
+          <div class="tag-list">
+            <span class="tag">HTML / CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Python</span>
+            <span class="tag">C++</span>
+            <span class="tag">Unity</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">3DCG</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 制作物・研究 -->
+    <section id="works">
+      <div class="wrap">
+
+        <h2 class="section-title">Works</h2>
+        <p class="section-lead">制作・研究の一部</p>
+
+        <div class="works">
+
+          <article class="work-card">
+            <div class="work-label">RESEARCH</div>
+            <h3>数学解説データセットの構築</h3>
+            <p>
+              数学の問題と解答から、
+              学習に役立つ解説を生成し、
+              分かりやすい数学解説の実現を目指す
+              研究に取り組んでいます。
+            </p>
+          </article>
+
+          <article class="work-card">
+            <div class="work-label">GAME DEVELOPMENT</div>
+            <h3>Unity Cart</h3>
+            <p>
+              Unityを使用したレースゲームです。
+              加速パネルや減速エリアを取り入れ、
+              操作によるスピードの変化を楽しめる
+              作品を制作しました。
+            </p>
+          </article>
+
+          <article class="work-card">
+            <div class="work-label">WEB DEVELOPMENT</div>
+            <h3>Webサイト制作</h3>
+            <p>
+              HTMLやCSSなどを使い、
+              情報を整理して見やすく伝える
+              Webページの制作に取り組んでいます。
+            </p>
+          </article>
+
+          <article class="work-card">
+            <div class="work-label">3D / MEDIA</div>
+            <h3>3DCG・メディア制作</h3>
+            <p>
+              3DCGをはじめとするデジタル表現について学び、
+              さまざまな制作方法を試しています。
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- お問い合わせ -->
+    <section id="contact">
+      <div class="wrap">
+
+        <div class="contact">
+          <h2 class="section-title">Contact</h2>
+
+          <p>ご覧いただきありがとうございます。</p>
+
+          <a class="button" href="#top">トップに戻る</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> KOUSEI TAKASU
     </div>
-  </div>
-  <div class="card">
-    <h3>資格・検定</h3>
-    <p>
-      ・〇〇検定<br>
-      ・〇〇資格<br>
-      ・普通自動車運転免許
-    </p>
-  </div>
-</section>
+  </footer>
 
-<section id="contact">
-  <div class="contact">
-    <div class="section-title">
-      <h2>Contact</h2>
-      <p>お問い合わせ</p>
-    </div>
-    <p>最後までご覧いただきありがとうございます。</p>
-    <p>どうぞよろしくお願いいたします。</p>
-    <a href="mailto:your-email@example.com" class="btn">
-      メールでお問い合わせ
-    </a>
-  </div>
-</section>
-
-<footer>
-  © 2026 MY PORTFOLIO. All Rights Reserved.
-</footer>
+  <!-- JavaScript -->
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 
 </body>
 </html>
