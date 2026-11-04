@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio | 就職活動ポートフォリオ</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #263247;
+  background: #f7f9fc;
+  line-height: 1.8;
+}
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,.95);
+  padding: 18px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 12px #0000000a;
+  z-index: 10;
+}
+.logo {
+  font-weight: bold;
+  font-size: 21px;
+  color: #234477;
+}
+nav a {
+  text-decoration: none;
+  color: #263247;
+  margin-left: 20px;
+  font-size: 13px;
+}
+nav a:hover { color: #477bc0; }
+
+.hero {
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg,#e8f0fb,#f8faff);
+}
+.hero .small {
+  color: #5279ac;
+  letter-spacing: 4px;
+  font-size: 13px;
+}
+.hero h1 {
+  font-size: clamp(34px,6vw,58px);
+  margin: 18px 0;
+  color: #203b64;
+}
+.hero p {
+  color: #64748b;
+}
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 35px;
+  border-radius: 30px;
+  background: #294d7e;
+  color: white;
+  text-decoration: none;
+  transition: .3s;
+}
+.btn:hover {
+  background: #477bc0;
+  transform: translateY(-3px);
+}
+section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 85px 25px;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+.section-title h2 {
+  color: #294d7e;
+  font-size: 30px;
+}
+.section-title p {
+  color: #91a1b5;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+.profile {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 35px;
+  align-items: center;
+}
+.photo {
+  background: #e3ebf6;
+  border-radius: 20px;
+  min-height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7890af;
+  font-size: 14px;
+}
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 25px #1d35570a;
+}
+.card h3 {
+  color: #294d7e;
+  margin-bottom: 12px;
+}
+.card p { color: #64748b; }
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.skills span {
+  background: #e8eff9;
+  color: #355b8c;
+  padding: 9px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+}
+.contact {
+  text-align: center;
+  background: #eaf0f9;
+  border-radius: 20px;
+  padding: 55px 20px;
+}
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #203b64;
+  color: white;
+  font-size: 12px;
+}
+@media(max-width:700px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  nav a {
+    margin: 0 7px;
+    font-size: 11px;
+  }
+  .profile {
+    grid-template-columns: 1fr;
+  }
+  .photo { min-height: 180px; }
+  section { padding: 60px 20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">MY PORTFOLIO</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#pr">PR</a>
+    <a href="#activity">Activity</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <p class="small">WELCOME TO MY PORTFOLIO</p>
+  <h1>MY NAME IS<br>YOUR NAME.</h1>
+  <p>自分らしさと可能性を伝えるポートフォリオ</p>
+  <a href="#about" class="btn">プロフィールを見る</a>
+</div>
+
+<section id="about">
+  <div class="section-title">
+    <h2>About Me</h2>
+    <p>自己紹介</p>
+  </div>
+  <div class="profile">
+    <div class="photo">ここにプロフィール写真</div>
+    <div>
+      <div class="card">
+        <h3>プロフィール</h3>
+        <p>
+          名前：あなたの名前<br>
+          大学：〇〇大学<br>
+          学部：〇〇学部<br>
+          学年：〇年生<br>
+          出身地：〇〇県
+        </p>
+      </div>
+      <p>
+        はじめまして。私のポートフォリオをご覧いただきありがとうございます。
+        これまでの経験や学び、自分の強みについて紹介します。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="pr">
+  <div class="section-title">
+    <h2>My Strength</h2>
+    <p>自己PR</p>
+  </div>
+  <div class="card">
+    <h3>私の強みは〇〇力です。</h3>
+    <p>
+      私の強みは、目標に向かって最後まで努力できることです。
+      これまでの経験を通して、課題を見つけ、自分で考えて行動することの
+      大切さを学びました。
+      今後もこの強みを活かし、周囲と協力しながら成長していきたいです。
+    </p>
+  </div>
+</section>
+
+<section id="activity">
+  <div class="section-title">
+    <h2>My Activity</h2>
+    <p>学生時代に力を入れたこと</p>
+  </div>
+  <div class="card">
+    <h3>学生時代に取り組んだこと</h3>
+    <p>
+      学生時代は〇〇に力を入れて取り組みました。
+      その中で〇〇という課題に直面しましたが、
+      〇〇という工夫を行い、改善することができました。
+      この経験から、継続力と課題解決力を身につけました。
+    </p>
+  </div>
+  <div class="card">
+    <h3>その他の活動・経験</h3>
+    <p>
+      アルバイト、サークル、ボランティア、インターンシップなど、
+      これまでの経験を記載します。
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-title">
+    <h2>My Skills</h2>
+    <p>スキル・資格</p>
+  </div>
+  <div class="card">
+    <h3>スキル</h3>
+    <div class="skills">
+      <span>コミュニケーション力</span>
+      <span>協調性</span>
+      <span>課題解決力</span>
+      <span>継続力</span>
+      <span>PCスキル</span>
+    </div>
+  </div>
+  <div class="card">
+    <h3>資格・検定</h3>
+    <p>
+      ・〇〇検定<br>
+      ・〇〇資格<br>
+      ・普通自動車運転免許
+    </p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>お問い合わせ</p>
+    </div>
+    <p>最後までご覧いただきありがとうございます。</p>
+    <p>どうぞよろしくお願いいたします。</p>
+    <a href="mailto:your-email@example.com" class="btn">
+      メールでお問い合わせ
+    </a>
+  </div>
+</section>
+
+<footer>
+  © 2026 MY PORTFOLIO. All Rights Reserved.
+</footer>
+
+</body>
+</html>
