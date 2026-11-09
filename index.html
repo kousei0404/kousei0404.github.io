@@ -4,40 +4,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="KOUSEI TAKASU - Creative Portfolio">
-<title>KOUSEI TAKASU | Portfolio</title>
+<meta name="description" content="高須弘政のポートフォリオ。Web開発、プログラミング、3DCG、自然言語処理の研究・制作実績を紹介します。">
+<title>KOUSEI TAKASU | PORTFOLIO</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #151715;
-  --surface: #20231f;
-  --surface2: #292d27;
-  --text: #f2f1e9;
-  --muted: #999e92;
-  --line: #373c34;
-  --accent: #d8f36a;
-  --dark: #151715;
+  --bg: #f7f8f5;
+  --white: #ffffff;
+  --dark: #171a17;
+  --text: #20251f;
+  --muted: #747c72;
+  --line: #e4e8e1;
+  --accent: #b8d957;
+  --accent-dark: #6e8d24;
+  --soft: #eef3e4;
+  --font-en: "DM Sans", sans-serif;
+  --font-ja: "Noto Sans JP", sans-serif;
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 100px;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: "DM Sans", "Noto Sans JP", sans-serif;
+  font-family: var(--font-ja);
   line-height: 1.8;
   overflow-x: hidden;
 }
@@ -47,685 +50,616 @@ a {
   text-decoration: none;
 }
 
-button {
-  font: inherit;
-}
-
-.wrap {
-  width: min(1240px, calc(100% - 80px));
-  margin: 0 auto;
-}
-
-.mono {
-  font-family: "DM Mono", monospace;
-}
-
-.accent {
-  color: var(--accent);
+img {
+  max-width: 100%;
+  display: block;
 }
 
 /* HEADER */
 
-header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
-  background: rgba(21,23,21,.85);
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255,255,255,.07);
-}
-
-.nav {
   height: 76px;
+  padding: 0 7%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  z-index: 1000;
 }
 
 .logo {
-  font-size: 1.15rem;
-  font-weight: 900;
-  letter-spacing: -.05em;
+  font-family: var(--font-en);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
 .logo span {
-  color: var(--accent);
+  color: var(--accent-dark);
 }
 
-nav {
+.nav {
   display: flex;
   align-items: center;
-  gap: 34px;
+  gap: 30px;
 }
 
-nav a {
-  color: #b7baaf;
-  font-size: .78rem;
-  font-family: "DM Mono", monospace;
-  transition: .3s;
+.nav a {
+  font-family: var(--font-en);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #5d645a;
+  transition: 0.25s;
 }
 
-nav a:hover {
-  color: var(--accent);
+.nav a:hover,
+.nav a.active {
+  color: var(--accent-dark);
 }
 
-.nav-contact {
-  border: 1px solid var(--line);
-  padding: 8px 17px;
+.nav a.contact-link {
+  background: var(--dark);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 3px;
 }
 
-.nav-contact:hover {
-  background: var(--accent);
+.nav a.contact-link:hover {
+  background: var(--accent-dark);
+}
+
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
   color: var(--dark);
-  border-color: var(--accent);
 }
 
-/* HERO */
+/* COMMON */
+
+section {
+  padding: 110px 8%;
+  scroll-margin-top: 75px;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.section-heading {
+  margin-bottom: 55px;
+}
+
+.section-label {
+  font-family: var(--font-en);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: var(--accent-dark);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.section-description {
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* HOME */
+
+#home {
+  min-height: 740px;
+  padding-top: 76px;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at 85% 45%, rgba(184,217,87,0.16), transparent 28%),
+    var(--bg);
+}
 
 .hero {
-  min-height: 850px;
-  padding-top: 145px;
-  padding-bottom: 80px;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 100px 0 80px;
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  align-items: center;
+  gap: 45px;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-family: var(--font-en);
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--accent-dark);
+  background: var(--soft);
+  padding: 8px 15px;
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  font-family: var(--font-en);
+  font-size: clamp(48px, 7vw, 84px);
+  line-height: 1.03;
+  letter-spacing: -4px;
+  font-weight: 800;
+}
+
+.hero h1 span {
+  color: var(--accent-dark);
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 25px;
+}
+
+.hero-text {
+  max-width: 490px;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 16px;
+  line-height: 2.1;
+}
+
+.hero-buttons {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 35px;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 25px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid var(--dark);
+  transition: 0.3s;
+}
+
+.button-primary {
+  background: var(--dark);
+  color: white;
+}
+
+.button-primary:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.button-outline:hover {
+  background: var(--soft);
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 350px;
+}
+
+.hero-circle {
+  width: min(300px, 75vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
   justify-content: center;
   position: relative;
 }
 
-.hero-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 35px;
-}
-
-.hero-label {
-  color: var(--accent);
-  font-family: "DM Mono", monospace;
-  font-size: .75rem;
-  letter-spacing: .13em;
-}
-
-.hero-status {
-  color: var(--muted);
-  font-family: "DM Mono", monospace;
-  font-size: .7rem;
-}
-
-.hero h1 {
-  font-size: clamp(4rem, 12.5vw, 11rem);
-  line-height: .86;
-  font-weight: 900;
-  letter-spacing: -.085em;
-  text-transform: uppercase;
-}
-
-.hero h1 .second {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-}
-
-.hero h1 .outline {
-  color: transparent;
-  -webkit-text-stroke: 1px #777d70;
-}
-
-.hero h1 .dot {
-  color: var(--accent);
-}
-
-.hero-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  margin-top: 65px;
-  gap: 30px;
-}
-
-.hero-description {
-  max-width: 440px;
-  color: #a7aa9f;
-  font-size: .9rem;
-  line-height: 2;
-}
-
-.hero-description strong {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.hero-links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.primary-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 25px;
-  padding: 15px 22px;
-  background: var(--accent);
-  color: var(--dark);
-  font-size: .78rem;
-  font-weight: 800;
-  transition: .3s;
-}
-
-.primary-button:hover {
-  background: white;
-  transform: translateY(-4px);
-}
-
-.primary-button span {
-  font-size: 1.2rem;
-}
-
-.hero-decoration {
+.hero-circle::before {
+  content: "";
   position: absolute;
-  top: 185px;
-  right: 4%;
-  width: 90px;
-  height: 90px;
-  border: 1px solid #59604e;
+  width: 80%;
+  height: 80%;
+  border: 1px solid rgba(23,26,23,0.22);
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent);
-  font-size: 1.7rem;
-  transform: rotate(-20deg);
 }
 
-/* MARQUEE */
-
-.marquee {
-  background: var(--accent);
-  color: var(--dark);
-  overflow: hidden;
-  padding: 14px 0;
-  white-space: nowrap;
-}
-
-.marquee-inner {
-  display: inline-flex;
-  animation: marquee 25s linear infinite;
-}
-
-.marquee span {
-  font-family: "DM Mono", monospace;
-  font-size: .85rem;
-  font-weight: 500;
-  padding: 0 30px;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* COMMON SECTION */
-
-section {
-  padding: 125px 0;
-}
-
-.section-top {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  margin-bottom: 65px;
-}
-
-.section-index {
-  font-family: "DM Mono", monospace;
-  color: var(--accent);
-  font-size: .78rem;
-  letter-spacing: .1em;
-  margin-bottom: 15px;
-}
-
-.section-title {
-  font-size: clamp(2.8rem, 6vw, 5rem);
+.hero-initial {
+  font-family: var(--font-en);
+  font-size: 120px;
   font-weight: 800;
-  letter-spacing: -.07em;
-  line-height: 1;
+  letter-spacing: -12px;
+  color: var(--dark);
 }
 
-.section-title span {
-  color: var(--accent);
-}
-
-.section-jp {
-  color: var(--muted);
-  font-size: .8rem;
-  margin-top: 15px;
-}
-
-.section-note {
-  max-width: 260px;
-  color: var(--muted);
-  font-size: .78rem;
-  line-height: 2;
+.hero-caption {
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+  background: white;
+  border: 1px solid var(--line);
+  padding: 15px 22px;
+  font-family: var(--font-en);
+  font-size: 11px;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 /* ABOUT */
 
 #about {
-  background: #1b1e1a;
+  background: var(--white);
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 90px;
-  align-items: center;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 75px;
+  align-items: start;
 }
 
-.about-visual {
-  min-height: 470px;
+.profile-card {
+  background: var(--dark);
+  color: white;
+  padding: 35px;
+  min-height: 340px;
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 45%, #4e5b3d 0%, #293327 38%, #20251f 75%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.about-visual::before,
-.about-visual::after {
-  content: "";
+.profile-card::after {
+  content: "KT";
   position: absolute;
-  border: 1px solid rgba(216,243,106,.35);
-  border-radius: 50%;
+  right: -5px;
+  bottom: -60px;
+  font-family: var(--font-en);
+  font-size: 190px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.07);
 }
 
-.about-visual::before {
-  width: 310px;
-  height: 310px;
-}
-
-.about-visual::after {
-  width: 400px;
-  height: 400px;
-}
-
-.about-letter {
-  position: relative;
-  z-index: 2;
+.profile-small {
+  font-family: var(--font-en);
   color: var(--accent);
-  font-size: 12rem;
-  font-weight: 900;
-  letter-spacing: -.1em;
+  letter-spacing: 2px;
+  font-size: 11px;
 }
 
-.about-caption {
-  position: absolute;
-  bottom: 22px;
-  left: 25px;
-  color: #c5cbb7;
-  font-family: "DM Mono", monospace;
-  font-size: .7rem;
+.profile-name {
+  margin-top: 75px;
+  font-size: 28px;
+  font-weight: 800;
 }
 
-.about-text .small-label {
-  color: var(--accent);
-  font-family: "DM Mono", monospace;
-  font-size: .75rem;
+.profile-name-en {
+  font-family: var(--font-en);
+  font-size: 13px;
+  color: #b8c0b3;
+  letter-spacing: 2px;
+}
+
+.profile-info {
+  margin-top: 25px;
+  font-size: 13px;
+  color: #c8cec5;
 }
 
 .about-text h3 {
-  font-size: 1.9rem;
-  line-height: 1.6;
-  margin: 17px 0 25px;
-  letter-spacing: -.04em;
+  font-size: 22px;
+  line-height: 1.8;
+  margin-bottom: 22px;
 }
 
 .about-text p {
-  color: #a4a99e;
-  font-size: .87rem;
+  color: var(--muted);
+  font-size: 14px;
   line-height: 2.2;
-  margin-bottom: 17px;
+  margin-bottom: 16px;
 }
 
-.profile-list {
-  margin-top: 35px;
+.info-list {
   border-top: 1px solid var(--line);
+  margin-top: 30px;
 }
 
-.profile-row {
+.info-row {
   display: grid;
-  grid-template-columns: 110px 1fr;
-  padding: 13px 0;
+  grid-template-columns: 115px 1fr;
+  gap: 15px;
+  padding: 14px 0;
   border-bottom: 1px solid var(--line);
-  font-size: .8rem;
+  font-size: 13px;
 }
 
-.profile-row span:first-child {
-  color: var(--accent);
-  font-family: "DM Mono", monospace;
+.info-row span:first-child {
+  color: var(--muted);
+  font-weight: 600;
 }
 
 /* SKILLS */
 
+#skills {
+  background: var(--bg);
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  gap: 20px;
 }
 
 .skill-card {
-  padding: 40px 30px;
-  border-right: 1px solid var(--line);
-  transition: background .3s;
-}
-
-.skill-card:last-child {
-  border-right: none;
+  background: white;
+  padding: 30px;
+  border: 1px solid var(--line);
+  transition: 0.3s;
 }
 
 .skill-card:hover {
-  background: var(--surface);
+  transform: translateY(-5px);
+  border-color: var(--accent-dark);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
 }
 
-.skill-icon {
-  font-size: 2rem;
-  color: var(--accent);
-  margin-bottom: 35px;
-}
-
-.skill-num {
-  color: var(--muted);
-  font-family: "DM Mono", monospace;
-  font-size: .72rem;
+.skill-number {
+  font-family: var(--font-en);
+  color: var(--accent-dark);
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .skill-card h3 {
-  font-size: 1.25rem;
-  margin: 12px 0;
+  font-size: 18px;
+  margin: 15px 0 10px;
 }
 
 .skill-card p {
+  font-size: 13px;
   color: var(--muted);
-  font-size: .8rem;
-  min-height: 65px;
+  min-height: 75px;
 }
 
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 25px;
+  margin-top: 22px;
 }
 
 .skill-tags span {
-  color: #c6cabe;
-  border: 1px solid var(--line);
-  padding: 5px 10px;
-  font-size: .68rem;
-  font-family: "DM Mono", monospace;
-}
-
-.tech-stack {
-  margin-top: 50px;
-}
-
-.tech-stack h3 {
-  font-family: "DM Mono", monospace;
-  color: var(--muted);
-  font-size: .75rem;
-  font-weight: 400;
-  margin-bottom: 18px;
-}
-
-.tech-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.tech-list span {
-  padding: 9px 17px;
-  background: var(--surface);
-  color: #d3d6cc;
-  font-size: .78rem;
-  border-radius: 2px;
+  background: var(--soft);
+  color: #53672b;
+  padding: 6px 10px;
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 600;
 }
 
 /* WORKS */
 
 #works {
-  background: #1b1e1a;
+  background: white;
 }
 
 .works-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px 28px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
 }
 
 .work-card {
-  min-width: 0;
+  border: 1px solid var(--line);
+  background: white;
+  transition: 0.3s;
 }
 
-.work-card.featured {
-  grid-column: span 2;
+.work-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.07);
 }
 
-.work-image {
-  position: relative;
-  height: 310px;
-  overflow: hidden;
+.work-visual {
+  min-height: 220px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  transition: .4s;
-}
-
-.featured .work-image {
-  height: 420px;
-}
-
-.work-card:hover .work-image {
-  filter: brightness(1.12);
-}
-
-.research-image {
-  background:
-    radial-gradient(circle at 70% 30%, #758a62, transparent 35%),
-    linear-gradient(135deg, #29372c, #17211b);
-}
-
-.game-image {
-  background:
-    linear-gradient(140deg, #a7a38d, #555b4b 55%, #252c25);
-}
-
-.web-image {
-  background:
-    linear-gradient(135deg, #354452, #718493);
-}
-
-.media-image {
-  background:
-    radial-gradient(circle at 50% 45%, #c2a47d, transparent 40%),
-    linear-gradient(135deg, #463d36, #201d1a);
-}
-
-.work-art {
+  align-items: center;
   position: relative;
-  z-index: 2;
-  font-weight: 900;
-  font-size: clamp(2.5rem, 6vw, 5.5rem);
-  letter-spacing: -.08em;
-  color: rgba(255,255,255,.86);
-  text-align: center;
-  line-height: 1.1;
+  overflow: hidden;
+  background: #e9eee2;
 }
 
-.work-art span {
-  display: block;
-  font-family: "DM Mono", monospace;
-  font-size: .75rem;
-  letter-spacing: .2em;
-  margin-top: 18px;
-  color: var(--accent);
-}
-
-.research-image::before {
-  content: "∑";
-  position: absolute;
-  right: 10%;
-  top: 0;
-  font-size: 18rem;
-  color: rgba(216,243,106,.1);
-  font-family: serif;
-}
-
-.game-image::before {
-  content: "";
-  position: absolute;
-  width: 75%;
-  height: 65%;
-  border: 1px solid rgba(255,255,255,.25);
-  transform: perspective(300px) rotateX(50deg) rotateZ(-10deg);
-}
-
-.game-image::after {
-  content: "01 — 04";
-  position: absolute;
-  top: 20px;
-  right: 20px;
+.work-visual.dark {
+  background: #202820;
   color: white;
-  font-family: "DM Mono", monospace;
 }
 
-.web-image::before {
-  content: "";
+.work-visual.lime {
+  background: #dceba9;
+}
+
+.work-visual.gray {
+  background: #e8e9e5;
+}
+
+.work-visual-text {
+  font-family: var(--font-en);
+  font-size: clamp(30px, 5vw, 55px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  z-index: 1;
+}
+
+.work-visual-sub {
   position: absolute;
-  width: 75%;
-  height: 70%;
-  border: 1px solid rgba(255,255,255,.3);
-  background: linear-gradient(120deg, transparent 50%, rgba(255,255,255,.12) 50%);
+  bottom: 20px;
+  right: 22px;
+  font-family: var(--font-en);
+  font-size: 10px;
+  letter-spacing: 2px;
+  opacity: 0.6;
 }
 
-.media-image::before {
-  content: "";
-  position: absolute;
-  width: 240px;
-  height: 240px;
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 50%;
-  box-shadow: 0 0 0 30px rgba(255,255,255,.04),
-              0 0 0 60px rgba(255,255,255,.03);
-}
-
-.work-overlay {
-  position: absolute;
-  bottom: 18px;
-  right: 20px;
-  font-family: "DM Mono", monospace;
-  color: rgba(255,255,255,.65);
-  font-size: .7rem;
-}
-
-.work-info {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 22px 0;
-  border-bottom: 1px solid #44483e;
+.work-content {
+  padding: 25px;
 }
 
 .work-category {
-  color: var(--accent);
-  font-family: "DM Mono", monospace;
-  font-size: .68rem;
-  letter-spacing: .1em;
+  font-family: var(--font-en);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent-dark);
 }
 
-.work-info h3 {
-  font-size: 1.2rem;
-  margin: 5px 0;
+.work-content h3 {
+  font-size: 19px;
+  margin: 10px 0;
 }
 
-.work-info p {
-  max-width: 480px;
+.work-content p {
+  font-size: 13px;
   color: var(--muted);
-  font-size: .8rem;
   line-height: 2;
 }
 
-.work-arrow {
-  align-self: center;
-  color: var(--accent);
-  font-size: 1.5rem;
-  transition: .3s;
+.work-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
 }
 
-.work-card:hover .work-arrow {
-  transform: translate(5px, -5px);
+.work-tech span {
+  font-family: var(--font-en);
+  font-size: 10px;
+  background: #f0f2ed;
+  padding: 5px 9px;
+  color: #555e51;
+}
+
+/* RESEARCH */
+
+#research {
+  background: var(--dark);
+  color: white;
+}
+
+#research .section-title {
+  color: white;
+}
+
+#research .section-description {
+  color: #aeb6aa;
+}
+
+.research-panel {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 50px;
+  padding: 45px;
+  border: 1px solid #3b4339;
+  background: #20251f;
+}
+
+.research-label {
+  color: var(--accent);
+  font-family: var(--font-en);
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.research-panel h3 {
+  font-size: 23px;
+  line-height: 1.7;
+  margin: 18px 0;
+}
+
+.research-panel p {
+  font-size: 13px;
+  color: #b6beb3;
+  line-height: 2.1;
+}
+
+.research-details {
+  border-left: 1px solid #424a3e;
+  padding-left: 35px;
+}
+
+.research-detail {
+  margin-bottom: 25px;
+}
+
+.research-detail span {
+  display: block;
+  font-family: var(--font-en);
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 7px;
+}
+
+.research-detail strong {
+  font-size: 14px;
 }
 
 /* CONTACT */
 
-.contact-section {
-  padding: 130px 0;
+#contact {
+  background: var(--bg);
+  text-align: center;
 }
 
-.contact-box {
-  position: relative;
-  overflow: hidden;
-  padding: 85px 70px;
+.contact-panel {
   background: var(--accent);
-  color: var(--dark);
+  padding: 75px 25px;
 }
 
-.contact-box::after {
-  content: "KT.";
-  position: absolute;
-  right: -20px;
-  bottom: -140px;
-  font-size: 23rem;
-  font-weight: 900;
-  letter-spacing: -.1em;
-  color: rgba(21,23,21,.07);
-  pointer-events: none;
+.contact-panel .section-label {
+  color: #536b24;
 }
 
-.contact-label {
-  font-family: "DM Mono", monospace;
-  font-size: .75rem;
+.contact-panel h2 {
+  font-family: var(--font-en);
+  font-size: clamp(38px, 7vw, 65px);
+  letter-spacing: -3px;
+  font-weight: 800;
 }
 
-.contact-box h2 {
-  font-size: clamp(3rem, 8vw, 7rem);
-  font-weight: 900;
-  letter-spacing: -.09em;
-  line-height: 1;
-  margin: 25px 0;
-}
-
-.contact-box p {
-  font-size: .85rem;
-  margin-bottom: 35px;
+.contact-panel p {
+  font-size: 14px;
+  margin: 20px 0 30px;
+  color: #45532b;
 }
 
 .contact-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 25px;
-  padding: 15px 22px;
+  display: inline-block;
+  padding: 14px 30px;
   background: var(--dark);
   color: white;
-  font-size: .78rem;
+  font-size: 13px;
   font-weight: 700;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .contact-button:hover {
@@ -736,240 +670,196 @@ section {
 /* FOOTER */
 
 footer {
-  padding: 30px 0;
-  border-top: 1px solid var(--line);
-}
-
-.footer-inner {
+  padding: 30px 8%;
+  background: var(--dark);
+  color: #aeb6aa;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: var(--font-en);
+  font-size: 11px;
+  letter-spacing: 1px;
 }
 
-.footer-logo {
-  font-weight: 900;
-  font-size: 1rem;
-}
-
-.footer-logo span {
-  color: var(--accent);
-}
-
-footer p {
-  font-family: "DM Mono", monospace;
-  color: var(--muted);
-  font-size: .68rem;
+footer strong {
+  color: white;
+  font-size: 18px;
 }
 
 /* ANIMATION */
 
 .reveal {
   opacity: 0;
-  transform: translateY(35px);
-  transition: opacity .8s ease, transform .8s ease;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.reveal.visible {
+.reveal.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-.hero h1 {
-  animation: heroIn 1s ease both;
-}
+/* RESPONSIVE */
 
-.hero-description,
-.hero-links {
-  animation: heroIn 1s .2s ease both;
-}
-
-@keyframes heroIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* MOBILE */
-
-@media (max-width: 800px) {
-  .wrap {
-    width: calc(100% - 40px);
+@media (max-width: 900px) {
+  .header {
+    padding: 0 5%;
   }
 
   .nav {
-    height: 70px;
+    gap: 16px;
   }
 
-  nav {
-    gap: 15px;
-  }
-
-  nav a {
-    font-size: .65rem;
-  }
-
-  .nav-contact {
-    padding: 5px 8px;
-  }
-
-  .hero {
-    min-height: auto;
-    padding-top: 175px;
-    padding-bottom: 100px;
-  }
-
-  .hero h1 {
-    font-size: clamp(3.8rem, 12vw, 7rem);
-  }
-
-  .hero-decoration {
-    width: 60px;
-    height: 60px;
-    font-size: 1.2rem;
-    right: 5%;
-    top: 120px;
-  }
-
-  .hero-bottom {
-    flex-direction: column;
-    align-items: start;
-    margin-top: 45px;
-  }
-
-  .hero-description {
-    max-width: 100%;
-  }
-
-  .section-top {
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .section-note {
-    max-width: 450px;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 45px;
-  }
-
-  .about-visual {
-    min-height: 350px;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .skill-card {
-    border-right: none;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .skill-card p {
-    min-height: 0;
-  }
-
-  .works-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .work-card.featured {
-    grid-column: auto;
-  }
-
-  .work-image,
-  .featured .work-image {
-    height: 280px;
-  }
-
-  .contact-box {
-    padding: 65px 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .wrap {
-    width: calc(100% - 32px);
-  }
-
-  .logo {
-    font-size: .95rem;
-  }
-
-  nav {
-    gap: 11px;
-  }
-
-  nav a {
-    font-size: .59rem;
-  }
-
-  .hero h1 {
-    font-size: 3.55rem;
-  }
-
-  .hero-top {
-    align-items: start;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .hero h1 .second {
-    gap: 10px;
+  .nav a {
+    font-size: 10px;
   }
 
   section {
-    padding: 85px 0;
+    padding: 85px 6%;
   }
 
-  .section-title {
-    font-size: 3.1rem;
+  .hero {
+    gap: 20px;
   }
 
-  .about-text h3 {
-    font-size: 1.5rem;
+  .about-grid {
+    gap: 35px;
   }
 
-  .profile-row {
-    grid-template-columns: 85px 1fr;
+  .research-panel {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 680px) {
+  .header {
+    height: 65px;
   }
 
-  .work-info h3 {
-    font-size: 1rem;
+  .menu-button {
+    display: block;
   }
 
-  .work-info p {
-    font-size: .75rem;
-  }
-
-  .contact-box {
-    padding: 55px 22px;
-  }
-
-  .footer-inner {
+  .nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    padding: 20px 7%;
+    background: white;
+    border-bottom: 1px solid var(--line);
     flex-direction: column;
-    gap: 10px;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 13px 0;
+    font-size: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav a.contact-link {
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  #home {
+    min-height: auto;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 120px 0 65px;
+    gap: 30px;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 13vw, 70px);
+    letter-spacing: -3px;
+  }
+
+  .hero-visual {
+    min-height: 260px;
+  }
+
+  .hero-circle {
+    width: 220px;
+  }
+
+  .hero-initial {
+    font-size: 90px;
+  }
+
+  .hero-caption {
+    right: 5%;
+    bottom: 10px;
+  }
+
+  section {
+    padding: 75px 6%;
+  }
+
+  .section-heading {
+    margin-bottom: 35px;
+  }
+
+  .about-grid,
+  .research-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    min-height: 280px;
+  }
+
+  .profile-name {
+    margin-top: 45px;
+  }
+
+  .skills-grid,
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card p {
+    min-height: auto;
+  }
+
+  .research-panel {
+    padding: 28px;
+  }
+
+  .research-details {
+    border-left: none;
+    border-top: 1px solid #424a3e;
+    padding: 25px 0 0;
+  }
+
+  .info-row {
+    grid-template-columns: 90px 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
+  html {
+    scroll-behavior: auto;
   }
 
-  .reveal {
-    opacity: 1;
-    transform: none;
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
 </style>
@@ -978,394 +868,432 @@ footer p {
 <body>
 
 <!-- HEADER -->
-<header>
-  <div class="wrap nav">
-    <a href="#top" class="logo">KT<span>.</span> PORTFOLIO</a>
+<header class="header">
+  <a href="#home" class="logo">KT<span>.</span></a>
 
-    <nav>
-      <a href="#about">ABOUT</a>
-      <a href="#skills">SKILLS</a>
-      <a href="#works">WORKS</a>
-      <a href="#contact" class="nav-contact">CONTACT ↗</a>
-    </nav>
-  </div>
+  <button class="menu-button" id="menuButton"
+    aria-label="メニューを開く" aria-expanded="false">
+    ☰
+  </button>
+
+  <nav class="nav" id="nav">
+    <a href="#home" class="active">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#skills">SKILLS</a>
+    <a href="#works">WORKS</a>
+    <a href="#research">RESEARCH</a>
+    <a href="#contact" class="contact-link">CONTACT ↗</a>
+  </nav>
 </header>
 
 <main>
 
-<!-- HERO -->
-<div class="wrap hero" id="top">
+<!-- HOME -->
+<section id="home">
+  <div class="hero">
+    <div class="hero-content reveal">
+      <span class="hero-tag">PORTFOLIO / 2026</span>
 
-  <div class="hero-decoration">✳</div>
+      <h1>
+        KOUSEI<br>
+        TAKASU<span>.</span>
+      </h1>
 
-  <div class="hero-top">
-    <div class="hero-label">CREATIVE PORTFOLIO / 2026</div>
-    <div class="hero-status">BASED IN JAPAN — AVAILABLE TO EXPLORE</div>
-  </div>
+      <p class="hero-subtitle">
+        アイデアを、カタチにする。
+      </p>
 
-  <h1>
-    KOUSEI
-    <span class="second">
-      <span class="outline">TAKASU</span><span class="dot">.</span>
-    </span>
-  </h1>
+      <p class="hero-text">
+        Web開発、プログラミング、3DCGなど、
+        幅広い分野の制作に取り組んでいます。
+        新しい技術を学びながら、課題を解決するものづくりを目指しています。
+      </p>
 
-  <div class="hero-bottom">
-
-    <p class="hero-description">
-      <strong>Ideas into reality.</strong><br>
-      Web Development, 3DCG, AI and Game Development.
-      技術とアイデアを組み合わせ、
-      人に伝わるものづくりを目指しています。
-    </p>
-
-    <div class="hero-links">
-      <a href="#works" class="primary-button">
-        EXPLORE WORKS <span>↗</span>
-      </a>
+      <div class="hero-buttons">
+        <a href="#works" class="button button-primary">
+          制作実績を見る <span>↓</span>
+        </a>
+        <a href="#about" class="button button-outline">
+          ABOUT ME <span>↗</span>
+        </a>
+      </div>
     </div>
 
+    <div class="hero-visual reveal">
+      <div class="hero-circle">
+        <span class="hero-initial">KT</span>
+      </div>
+      <div class="hero-caption">
+        WEB / AI / CREATIVE
+      </div>
+    </div>
   </div>
-
-</div>
-
-<!-- MARQUEE -->
-<div class="marquee">
-  <div class="marquee-inner">
-    <span>DESIGN ✳ DEVELOPMENT ✳ CREATIVITY ✳ INNOVATION ✳</span>
-    <span>DESIGN ✳ DEVELOPMENT ✳ CREATIVITY ✳ INNOVATION ✳</span>
-  </div>
-</div>
+</section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="wrap reveal">
-
-    <div class="section-top">
-      <div>
-        <div class="section-index">01 — WHO I AM</div>
-        <h2 class="section-title">About<span>.</span></h2>
-        <p class="section-jp">自分について</p>
-      </div>
-
-      <p class="section-note">
-        自分のアイデアを形にする。
-        そして、使う人の立場に立って考える。
-        それが私のものづくりの基本です。
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="section-label">01 / ABOUT</span>
+      <h2 class="section-title">自己紹介</h2>
+      <p class="section-description">
+        私について、これまでの学びや大切にしていることを紹介します。
       </p>
     </div>
 
     <div class="about-grid">
-
-      <div class="about-visual">
-        <div class="about-letter">K.</div>
-        <div class="about-caption">KOUSEI TAKASU / CREATOR</div>
-      </div>
-
-      <div class="about-text">
-        <div class="small-label">HELLO, I'M KOUSEI.</div>
-
-        <h3>
-          技術を学び、<br>
-          アイデアを形にする。
-        </h3>
-
-        <p>
-          こんにちは、高須 弘政です。
-          メディア情報専攻でプログラミングを学びながら、
-          Webサイト開発や3DCG、ゲーム制作などに取り組んでいます。
-        </p>
-
-        <p>
-          制作するときに大切にしているのは、
-          自分だけでなく、初めて触れる人にも
-          内容が伝わるものを作ることです。
-        </p>
-
-        <p>
-          新しい技術に挑戦しながら、
-          自分なりのアイデアを実際の形にしていくことに
-          面白さを感じています。
-        </p>
-
-        <div class="profile-list">
-          <div class="profile-row">
-            <span>NAME</span>
-            <span>Kousei Takasu</span>
-          </div>
-          <div class="profile-row">
-            <span>FIELD</span>
-            <span>Media Information</span>
-          </div>
-          <div class="profile-row">
-            <span>INTEREST</span>
-            <span>Web / 3DCG / AI / Game</span>
-          </div>
+      <div class="profile-card reveal">
+        <span class="profile-small">PROFILE</span>
+        <div class="profile-name">高須 弘政</div>
+        <div class="profile-name-en">KOUSEI TAKASU</div>
+        <div class="profile-info">
+          大学 / メディア情報専攻<br>
+          Web Development & Creative
         </div>
       </div>
 
-    </div>
+      <div class="about-text reveal">
+        <h3>
+          幅広い視点を持ち、<br>
+          相手に伝わるものづくりを。
+        </h3>
 
+        <p>
+          大学ではメディア情報分野を専攻し、
+          Webサイト開発やプログラミング、3DCGなど、
+          幅広い分野について学んでいます。
+        </p>
+
+        <p>
+          制作に取り組む際は、自分が理解できるだけでなく、
+          初めて見る人にも分かりやすく伝わることを大切にしています。
+          また、うまくいかない場合でも原因を考え、
+          改善を重ねながら最後まで取り組むことを心がけています。
+        </p>
+
+        <div class="info-list">
+          <div class="info-row">
+            <span>NAME</span>
+            <span>高須 弘政 / Kousei Takasu</span>
+          </div>
+          <div class="info-row">
+            <span>FIELD</span>
+            <span>メディア情報・Web開発・AI</span>
+          </div>
+          <div class="info-row">
+            <span>INTEREST</span>
+            <span>Web制作 / 3DCG / ゲーム開発</span>
+          </div>
+          <div class="info-row">
+            <span>STRENGTH</span>
+            <span>相手の立場を考え、粘り強く取り組むこと</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-  <div class="wrap reveal">
-
-    <div class="section-top">
-      <div>
-        <div class="section-index">02 — WHAT I DO</div>
-        <h2 class="section-title">Skills<span>.</span></h2>
-        <p class="section-jp">学習・制作で使用している技術</p>
-      </div>
-
-      <p class="section-note">
-        さまざまな技術を組み合わせながら、
-        表現できることの幅を広げています。
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="section-label">02 / SKILLS</span>
+      <h2 class="section-title">スキル・技術</h2>
+      <p class="section-description">
+        大学での授業や個人・グループ制作を通して学んできた技術です。
       </p>
     </div>
 
     <div class="skills-grid">
-
-      <div class="skill-card">
-        <div class="skill-icon">⌘</div>
-        <div class="skill-num">01 / DEVELOPMENT</div>
+      <article class="skill-card reveal">
+        <span class="skill-number">01 / WEB</span>
         <h3>Web Development</h3>
         <p>
-          Web技術を使い、情報を整理して
-          見やすく使いやすいページを制作します。
+          Webサイトの構成やデザインを考え、
+          HTML・CSS・JavaScriptなどを用いた制作に取り組んでいます。
         </p>
         <div class="skill-tags">
           <span>HTML</span>
           <span>CSS</span>
           <span>JavaScript</span>
+          <span>PHP</span>
         </div>
-      </div>
+      </article>
 
-      <div class="skill-card">
-        <div class="skill-icon">⌁</div>
-        <div class="skill-num">02 / PROGRAMMING</div>
+      <article class="skill-card reveal">
+        <span class="skill-number">02 / PROGRAMMING</span>
         <h3>Programming & AI</h3>
         <p>
-          プログラミングやAIを活用した
-          システム開発・研究に取り組んでいます。
+          プログラミングによる機能実装や、
+          Pythonを用いた自然言語処理・AI関連の研究を行っています。
         </p>
         <div class="skill-tags">
           <span>Python</span>
           <span>C++</span>
           <span>OpenCV</span>
+          <span>LLM</span>
         </div>
-      </div>
+      </article>
 
-      <div class="skill-card">
-        <div class="skill-icon">◈</div>
-        <div class="skill-num">03 / CREATIVE</div>
+      <article class="skill-card reveal">
+        <span class="skill-number">03 / CREATIVE</span>
         <h3>Creative & 3D</h3>
         <p>
-          ゲーム制作や3DCGなど、
-          デジタル技術を使った表現を学んでいます。
+          3DCGやゲーム制作を通して、
+          アイデアを視覚的な表現や動きのある作品にすることを学んでいます。
         </p>
         <div class="skill-tags">
           <span>Unity</span>
           <span>3DCG</span>
-          <span>Game</span>
+          <span>Game Design</span>
         </div>
-      </div>
-
+      </article>
     </div>
-
-    <div class="tech-stack">
-      <h3>TECHNOLOGY STACK / TOOLS</h3>
-      <div class="tech-list">
-        <span>HTML / CSS</span>
-        <span>JavaScript</span>
-        <span>Python</span>
-        <span>C++</span>
-        <span>Unity</span>
-        <span>OpenCV</span>
-        <span>3DCG</span>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- WORKS -->
 <section id="works">
-  <div class="wrap reveal">
-
-    <div class="section-top">
-      <div>
-        <div class="section-index">03 — SELECTED PROJECTS</div>
-        <h2 class="section-title">Works<span>.</span></h2>
-        <p class="section-jp">制作物・研究の紹介</p>
-      </div>
-
-      <p class="section-note">
-        学習や研究を通して制作した作品。
-        それぞれの制作過程で得た経験を紹介します。
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="section-label">03 / WORKS</span>
+      <h2 class="section-title">制作実績</h2>
+      <p class="section-description">
+        これまでに取り組んだ制作・開発の一部を紹介します。
       </p>
     </div>
 
     <div class="works-grid">
 
-      <!-- RESEARCH -->
-      <article class="work-card featured">
-        <div class="work-image research-image">
-          <div class="work-art">
-            MATH × AI
-            <span>RESEARCH PROJECT / NLP</span>
-          </div>
-          <div class="work-overlay">PROJECT 01 / RESEARCH</div>
+      <article class="work-card reveal">
+        <div class="work-visual dark">
+          <span class="work-visual-text">UNITY CART</span>
+          <span class="work-visual-sub">GAME DEVELOPMENT</span>
         </div>
-
-        <div class="work-info">
-          <div>
-            <div class="work-category">01 / RESEARCH & NLP</div>
-            <h3>数学解説データセットの構築</h3>
-            <p>
-              数学の問題と解答から、LLMを用いて解説を生成し、
-              数学解説データセットの構築に取り組んでいます。
-              学習に役立つ、分かりやすい解説の実現を目指しています。
-            </p>
+        <div class="work-content">
+          <span class="work-category">GAME / UNITY</span>
+          <h3>Unity Cart</h3>
+          <p>
+            プレイヤー1台とCPU4台が競争するレースゲームを制作。
+            直線コースに加速パネルや減速ゾーンを設置し、
+            操作によって速度が変化するゲームを目指しました。
+          </p>
+          <div class="work-tech">
+            <span>Unity</span>
+            <span>C#</span>
+            <span>Game Development</span>
           </div>
-          <div class="work-arrow">↗</div>
         </div>
       </article>
 
-      <!-- UNITY -->
-      <article class="work-card">
-        <div class="work-image game-image">
-          <div class="work-art">
-            UNITY
-            <span>GAME DEVELOPMENT</span>
-          </div>
-          <div class="work-overlay">PROJECT 02</div>
+      <article class="work-card reveal">
+        <div class="work-visual lime">
+          <span class="work-visual-text">MATH × AI</span>
+          <span class="work-visual-sub">NLP RESEARCH</span>
         </div>
-
-        <div class="work-info">
-          <div>
-            <div class="work-category">02 / GAME DEVELOPMENT</div>
-            <h3>Unity Cart</h3>
-            <p>
-              Unityを使用したレースゲーム。
-              加速パネルや減速エリアを取り入れ、
-              スピードの変化を楽しめる作品を制作しました。
-            </p>
+        <div class="work-content">
+          <span class="work-category">AI / RESEARCH</span>
+          <h3>数学解説データセットの構築</h3>
+          <p>
+            数学の問題と解答をもとに、LLMを活用して
+            数学の解説を自動生成する研究に取り組んでいます。
+            生成結果の読みやすさや正確性にも着目しています。
+          </p>
+          <div class="work-tech">
+            <span>Python</span>
+            <span>LLM</span>
+            <span>NLP</span>
           </div>
-          <div class="work-arrow">↗</div>
         </div>
       </article>
 
-      <!-- WEB -->
-      <article class="work-card">
-        <div class="work-image web-image">
-          <div class="work-art">
-            WEB
-            <span>DESIGN & DEVELOPMENT</span>
-          </div>
-          <div class="work-overlay">PROJECT 03</div>
+      <article class="work-card reveal">
+        <div class="work-visual gray">
+          <span class="work-visual-text">WEB DESIGN</span>
+          <span class="work-visual-sub">WEB DEVELOPMENT</span>
         </div>
-
-        <div class="work-info">
-          <div>
-            <div class="work-category">03 / WEB DEVELOPMENT</div>
-            <h3>Webサイト制作</h3>
-            <p>
-              HTMLやCSSを使用し、
-              情報を整理して見やすく伝える
-              Webページの制作に取り組んでいます。
-            </p>
+        <div class="work-content">
+          <span class="work-category">WEB / DESIGN</span>
+          <h3>Webサイト制作</h3>
+          <p>
+            HTMLやCSSなどを使用し、情報を整理して
+            見やすく伝えるWebサイトの制作に取り組んでいます。
+          </p>
+          <div class="work-tech">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
           </div>
-          <div class="work-arrow">↗</div>
         </div>
       </article>
 
-      <!-- 3DCG -->
-      <article class="work-card">
-        <div class="work-image media-image">
-          <div class="work-art">
-            3D
-            <span>CG & DIGITAL MEDIA</span>
-          </div>
-          <div class="work-overlay">PROJECT 04</div>
+      <article class="work-card reveal">
+        <div class="work-visual dark">
+          <span class="work-visual-text">3D CREATIVE</span>
+          <span class="work-visual-sub">3D GRAPHICS</span>
         </div>
-
-        <div class="work-info">
-          <div>
-            <div class="work-category">04 / 3D & MEDIA</div>
-            <h3>3DCG・メディア制作</h3>
-            <p>
-              3DCGをはじめとするデジタル表現を学び、
-              さまざまな制作方法を試しながら
-              表現の幅を広げています。
-            </p>
+        <div class="work-content">
+          <span class="work-category">CREATIVE / 3D</span>
+          <h3>3DCG制作</h3>
+          <p>
+            3DCGを用いたモデリングやビジュアル表現を学び、
+            立体的な作品づくりに取り組んでいます。
+          </p>
+          <div class="work-tech">
+            <span>3DCG</span>
+            <span>Modeling</span>
           </div>
-          <div class="work-arrow">↗</div>
         </div>
       </article>
 
     </div>
+  </div>
+</section>
 
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="section-label">04 / RESEARCH</span>
+      <h2 class="section-title">研究内容</h2>
+      <p class="section-description">
+        大学で取り組んでいる研究について紹介します。
+      </p>
+    </div>
+
+    <div class="research-panel reveal">
+      <div>
+        <span class="research-label">NATURAL LANGUAGE PROCESSING</span>
+
+        <h3>
+          LLMを活用した<br>
+          数学解説データセットの構築
+        </h3>
+
+        <p>
+          近年、LLMの学習に利用する数学の問題と解答を含む
+          データセットが構築されています。
+          一方で、数学の解説を対象としたデータセットは
+          十分に整備されていません。
+        </p>
+
+        <p>
+          そこで、既存の問題・解答データを活用し、
+          LLMによって解説を自動生成することで、
+          数学解説データセットを構築する研究に取り組んでいます。
+        </p>
+      </div>
+
+      <div class="research-details">
+        <div class="research-detail">
+          <span>RESEARCH THEME</span>
+          <strong>数学解説データセットの構築</strong>
+        </div>
+
+        <div class="research-detail">
+          <span>TECHNOLOGY</span>
+          <strong>Python / LLM / 自然言語処理</strong>
+        </div>
+
+        <div class="research-detail">
+          <span>FOCUS</span>
+          <strong>解説の正確性・読みやすさ・生成品質</strong>
+        </div>
+
+        <div class="research-detail">
+          <span>GOAL</span>
+          <strong>数学をより理解しやすくするためのデータ整備</strong>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="wrap reveal">
-
-    <div class="contact-box">
-      <div class="contact-label">04 — GET IN TOUCH</div>
-
-      <h2>
-        THANK<br>
-        YOU<span style="color:#f2f1e9">.</span>
-      </h2>
-
+<section id="contact">
+  <div class="container">
+    <div class="contact-panel reveal">
+      <span class="section-label">05 / CONTACT</span>
+      <h2>LET'S CONNECT.</h2>
       <p>
-        最後までご覧いただきありがとうございます。<br>
-        これからも新しい技術や表現に挑戦していきます。
+        ご覧いただきありがとうございます。<br>
+        お問い合わせはこちらからお願いいたします。
       </p>
 
-      <a href="#top" class="contact-button">
-        BACK TO TOP <span>↑</span>
+      <!-- メールアドレスを設定してください -->
+      <a href="mailto:ここにメールアドレスを入力"
+         class="contact-button">
+        CONTACT ME ↗
       </a>
     </div>
-
   </div>
 </section>
 
 </main>
 
-<!-- FOOTER -->
 <footer>
-  <div class="wrap footer-inner">
-    <div class="footer-logo">KT<span>.</span> PORTFOLIO</div>
-    <p>© <span id="year"></span> KOUSEI TAKASU / ALL RIGHTS RESERVED.</p>
-  </div>
+  <strong>KT.</strong>
+  <span>© 2026 KOUSEI TAKASU / PORTFOLIO</span>
+  <a href="#home">BACK TO TOP ↑</a>
 </footer>
 
 <script>
-  // 年号の自動更新
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
+// スマートフォン用メニュー
+const menuButton = document.getElementById("menuButton");
+const nav = document.getElementById("nav");
 
-  // スクロール時の表示アニメーション
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.12
-  });
+menuButton.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", isOpen);
+  menuButton.textContent = isOpen ? "×" : "☰";
+});
 
-  document.querySelectorAll(".reveal").forEach(element => {
-    observer.observe(element);
+// メニューを押したら閉じる
+document.querySelectorAll(".nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.textContent = "☰";
   });
+});
+
+// スクロール時の表示アニメーション
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
+
+// 現在表示中のセクションに応じてメニューを強調
+const sections = document.querySelectorAll("main section");
+const navLinks = document.querySelectorAll(".nav a:not(.contact-link)");
+
+const activeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === "#" + entry.target.id
+        );
+      });
+    }
+  });
+}, {
+  rootMargin: "-30% 0px -60% 0px"
+});
+
+sections.forEach(section => activeObserver.observe(section));
 </script>
 
 </body>
