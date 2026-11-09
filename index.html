@@ -2,1247 +2,814 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="高須弘政のポートフォリオサイト。Web制作、プログラミング、AI研究、3DCGなどの活動を紹介します。">
-<title>KOUSEI TAKASU | Creative Portfolio</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --background: #f5f5f2;
-  --white: #ffffff;
-  --navy: #17233c;
-  --blue: #4169e1;
-  --light-blue: #e9eefb;
-  --text: #242a35;
-  --sub: #737b89;
-  --line: #dedfdf;
-  --font-en: "DM Sans", sans-serif;
-  --font-ja: "Noto Sans JP", sans-serif;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-
-body {
-  background: var(--background);
-  color: var(--text);
-  font-family: var(--font-ja);
-  line-height: 1.8;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  font: inherit;
-}
-
-.container {
-  width: min(1120px, 86%);
-  margin: auto;
-}
-
-section {
-  padding: 110px 0;
-  scroll-margin-top: 75px;
-}
-
-/* HEADER */
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 76px;
-  z-index: 1000;
-  background: rgba(245,245,242,.94);
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid var(--line);
-}
-
-.header-inner {
-  width: min(1200px, 90%);
-  height: 100%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font-family: var(--font-en);
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -1px;
-  color: var(--navy);
-}
-
-.logo span {
-  color: var(--blue);
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-nav a {
-  font-family: var(--font-en);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #626a79;
-  transition: .25s;
-}
-
-nav a:hover,
-nav a.active {
-  color: var(--blue);
-}
-
-nav .nav-contact {
-  color: white;
-  background: var(--navy);
-  padding: 11px 20px;
-}
-
-nav .nav-contact:hover {
-  background: var(--blue);
-  color: white;
-}
-
-.menu-toggle {
-  display: none;
-  border: none;
-  background: transparent;
-  font-size: 25px;
-  color: var(--navy);
-  cursor: pointer;
-}
-
-/* COMMON */
-
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--blue);
-  font-family: var(--font-en);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  margin-bottom: 15px;
-}
-
-.eyebrow::before {
-  content: "";
-  width: 27px;
-  height: 2px;
-  background: var(--blue);
-}
-
-.section-title {
-  font-size: clamp(32px, 4vw, 45px);
-  font-weight: 800;
-  letter-spacing: -1.5px;
-  color: var(--navy);
-  line-height: 1.4;
-}
-
-.section-lead {
-  font-size: 14px;
-  color: var(--sub);
-  margin-top: 15px;
-  max-width: 600px;
-}
-
-.section-head {
-  margin-bottom: 55px;
-}
-
-.en {
-  font-family: var(--font-en);
-}
-
-/* HERO */
-
-#home {
-  min-height: 760px;
-  padding-top: 76px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.hero-layout {
-  width: min(1200px, 90%);
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 40px;
-  align-items: center;
-  padding: 100px 0 70px;
-}
-
-.hero-kicker {
-  font-family: var(--font-en);
-  font-size: 12px;
-  letter-spacing: 3px;
-  font-weight: 700;
-  color: var(--blue);
-  margin-bottom: 28px;
-}
-
-.hero-title {
-  color: var(--navy);
-  font-family: var(--font-en);
-  font-size: clamp(58px, 8vw, 100px);
-  font-weight: 800;
-  line-height: .98;
-  letter-spacing: -6px;
-}
-
-.hero-title .blue {
-  color: var(--blue);
-}
-
-.hero-jp {
-  margin-top: 35px;
-  font-size: 21px;
-  font-weight: 700;
-  color: var(--navy);
-}
-
-.hero-description {
-  max-width: 500px;
-  margin-top: 17px;
-  color: var(--sub);
-  font-size: 14px;
-  line-height: 2.2;
-}
-
-.hero-links {
-  display: flex;
-  gap: 13px;
-  flex-wrap: wrap;
-  margin-top: 35px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 22px;
-  padding: 14px 24px;
-  font-size: 12px;
-  font-weight: 700;
-  transition: .25s;
-}
-
-.btn-main {
-  background: var(--navy);
-  color: white;
-}
-
-.btn-main:hover {
-  background: var(--blue);
-  transform: translateY(-3px);
-}
-
-.btn-sub {
-  border: 1px solid #c8ccd4;
-  color: var(--navy);
-}
-
-.btn-sub:hover {
-  background: white;
-}
-
-.hero-art {
-  min-height: 430px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.art-main {
-  width: 330px;
-  height: 390px;
-  background: var(--navy);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.art-main::before {
-  content: "";
-  position: absolute;
-  width: 270px;
-  height: 270px;
-  border: 1px solid rgba(255,255,255,.3);
-  border-radius: 50%;
-}
-
-.art-main::after {
-  content: "";
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  border: 1px solid rgba(255,255,255,.3);
-  border-radius: 50%;
-}
-
-.art-letters {
-  font-family: var(--font-en);
-  font-size: 130px;
-  font-weight: 800;
-  color: white;
-  letter-spacing: -12px;
-  z-index: 2;
-}
-
-.art-blue {
-  position: absolute;
-  width: 110px;
-  height: 110px;
-  background: var(--blue);
-  right: -20px;
-  top: 25px;
-  z-index: 3;
-}
-
-.art-caption {
-  position: absolute;
-  bottom: 12px;
-  left: 0;
-  background: white;
-  padding: 15px 22px;
-  font-family: var(--font-en);
-  font-size: 11px;
-  letter-spacing: 2px;
-  font-weight: 700;
-  box-shadow: 0 8px 30px rgba(0,0,0,.08);
-}
-
-/* ABOUT */
-
-#about {
-  background: white;
-}
-
-.about-layout {
-  display: grid;
-  grid-template-columns: .75fr 1.25fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.about-visual {
-  background: var(--light-blue);
-  padding: 35px;
-  min-height: 400px;
-  position: relative;
-  overflow: hidden;
-}
-
-.about-visual::before {
-  content: "";
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: var(--blue);
-  opacity: .12;
-  right: -80px;
-  top: -70px;
-}
-
-.about-initial {
-  font-family: var(--font-en);
-  font-size: 110px;
-  font-weight: 800;
-  color: var(--navy);
-  letter-spacing: -10px;
-  position: absolute;
-  left: 30px;
-  bottom: 55px;
-}
-
-.about-caption {
-  position: absolute;
-  left: 35px;
-  bottom: 25px;
-  font-family: var(--font-en);
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--blue);
-  font-weight: 700;
-}
-
-.about-copy h3 {
-  font-size: 24px;
-  line-height: 1.8;
-  color: var(--navy);
-  margin-bottom: 25px;
-}
-
-.about-copy p {
-  font-size: 14px;
-  line-height: 2.2;
-  color: var(--sub);
-  margin-bottom: 17px;
-}
-
-.profile-table {
-  margin-top: 30px;
-  border-top: 1px solid var(--line);
-}
-
-.profile-row {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 15px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line);
-  font-size: 13px;
-}
-
-.profile-row dt {
-  font-family: var(--font-en);
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: var(--blue);
-  font-weight: 700;
-}
-
-.profile-row dd {
-  color: var(--text);
-}
-
-/* SKILLS */
-
-#skills {
-  background: var(--background);
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.skill {
-  background: white;
-  padding: 32px;
-  border: 1px solid var(--line);
-  transition: .3s;
-}
-
-.skill:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(23,35,60,.07);
-  border-color: #aab9ed;
-}
-
-.skill-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.skill-number {
-  color: var(--blue);
-  font-family: var(--font-en);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.skill-icon {
-  width: 43px;
-  height: 43px;
-  background: var(--light-blue);
-  color: var(--blue);
-  display: grid;
-  place-items: center;
-  font-family: var(--font-en);
-  font-size: 16px;
-  font-weight: 800;
-}
-
-.skill h3 {
-  color: var(--navy);
-  font-size: 19px;
-  margin-top: 25px;
-  margin-bottom: 12px;
-}
-
-.skill p {
-  font-size: 13px;
-  line-height: 2;
-  color: var(--sub);
-  min-height: 105px;
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-top: 20px;
-}
-
-.skill-tags span {
-  font-family: var(--font-en);
-  font-size: 10px;
-  color: #44557b;
-  background: var(--light-blue);
-  padding: 5px 9px;
-}
-
-/* WORKS */
-
-#works {
-  background: white;
-}
-
-.works-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 35px 25px;
-}
-
-.work-card {
-  background: white;
-  border: 1px solid var(--line);
-  transition: .3s;
-}
-
-.work-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 18px 40px rgba(23,35,60,.08);
-}
-
-.work-image {
-  height: 260px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.work-image.one {
-  background: #17233c;
-  color: white;
-}
-
-.work-image.two {
-  background: #e9eefb;
-  color: var(--navy);
-}
-
-.work-image.three {
-  background: #e9e9e5;
-  color: var(--navy);
-}
-
-.work-image.four {
-  background: #dbe3f5;
-  color: var(--navy);
-}
-
-.work-image::after {
-  content: "";
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  opacity: .25;
-}
-
-.work-image-title {
-  font-family: var(--font-en);
-  font-size: clamp(30px, 4vw, 49px);
-  font-weight: 800;
-  letter-spacing: -2px;
-  z-index: 1;
-}
-
-.work-image-caption {
-  position: absolute;
-  right: 20px;
-  bottom: 15px;
-  font-family: var(--font-en);
-  font-size: 10px;
-  letter-spacing: 2px;
-  opacity: .65;
-}
-
-.work-body {
-  padding: 26px;
-}
-
-.work-category {
-  color: var(--blue);
-  font-family: var(--font-en);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.work-body h3 {
-  color: var(--navy);
-  font-size: 19px;
-  margin: 10px 0;
-}
-
-.work-body p {
-  color: var(--sub);
-  font-size: 13px;
-  line-height: 2;
-}
-
-.work-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-top: 20px;
-}
-
-.work-meta span {
-  font-size: 10px;
-  background: #f0f1f4;
-  color: #596273;
-  padding: 5px 9px;
-}
-
-/* RESEARCH */
-
-#research {
-  background: var(--navy);
-  color: white;
-}
-
-#research .section-title {
-  color: white;
-}
-
-#research .section-lead {
-  color: #c1c9d7;
-}
-
-.research-content {
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 55px;
-  padding: 45px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.15);
-}
-
-.research-label {
-  color: #a9bdfd;
-  font-family: var(--font-en);
-  font-size: 11px;
-  letter-spacing: 2px;
-  font-weight: 700;
-}
-
-.research-content h3 {
-  font-size: 25px;
-  line-height: 1.7;
-  margin: 20px 0;
-}
-
-.research-content p {
-  color: #c1c9d7;
-  font-size: 13px;
-  line-height: 2.2;
-  margin-bottom: 15px;
-}
-
-.research-list {
-  border-left: 1px solid rgba(255,255,255,.2);
-  padding-left: 35px;
-}
-
-.research-item {
-  margin-bottom: 25px;
-}
-
-.research-item span {
-  display: block;
-  color: #a9bdfd;
-  font-family: var(--font-en);
-  font-size: 10px;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
-}
-
-.research-item strong {
-  font-size: 14px;
-}
-
-/* CONTACT */
-
-#contact {
-  background: var(--background);
-}
-
-.contact-box {
-  background: var(--light-blue);
-  padding: 75px 30px;
-  text-align: center;
-}
-
-.contact-box h2 {
-  font-family: var(--font-en);
-  color: var(--navy);
-  font-size: clamp(40px, 7vw, 68px);
-  font-weight: 800;
-  letter-spacing: -3px;
-}
-
-.contact-box p {
-  color: var(--sub);
-  font-size: 14px;
-  margin: 20px 0 30px;
-}
-
-.contact-button {
-  display: inline-block;
-  background: var(--blue);
-  color: white;
-  padding: 15px 32px;
-  font-size: 12px;
-  font-weight: 700;
-  transition: .25s;
-}
-
-.contact-button:hover {
-  background: var(--navy);
-}
-
-/* FOOTER */
-
-footer {
-  background: var(--navy);
-  color: #b7c0d0;
-  padding: 28px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-en);
-  font-size: 11px;
-  letter-spacing: 1px;
-}
-
-footer strong {
-  font-size: 19px;
-  color: white;
-}
-
-/* ANIMATION */
-
-.fade-up {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* RESPONSIVE */
-
-@media(max-width: 850px) {
-  nav {
-    gap: 16px;
-  }
-
-  nav a {
-    font-size: 9px;
-  }
-
-  .hero-layout {
-    gap: 20px;
-  }
-
-  .about-layout {
-    gap: 40px;
-  }
-
-  .research-content {
-    gap: 30px;
-  }
-}
-
-@media(max-width: 650px) {
-  header {
-    height: 65px;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  nav {
-    display: none;
-    position: absolute;
-    top: 65px;
-    left: 0;
-    width: 100%;
-    background: var(--background);
-    padding: 15px 7% 25px;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  nav.open {
-    display: flex;
-  }
-
-  nav a {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--line);
-    font-size: 12px;
-  }
-
-  nav .nav-contact {
-    text-align: center;
-    margin-top: 15px;
-  }
-
-  .container {
-    width: 88%;
-  }
-
-  section {
-    padding: 75px 0;
-  }
-
-  #home {
-    min-height: auto;
-  }
-
-  .hero-layout {
-    grid-template-columns: 1fr;
-    padding: 125px 0 65px;
-  }
-
-  .hero-title {
-    font-size: clamp(55px, 14vw, 80px);
-    letter-spacing: -4px;
-  }
-
-  .hero-jp {
-    font-size: 18px;
-  }
-
-  .hero-art {
-    min-height: 330px;
-  }
-
-  .art-main {
-    width: 250px;
-    height: 300px;
-  }
-
-  .art-letters {
-    font-size: 100px;
-  }
-
-  .about-layout {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
-
-  .about-visual {
-    min-height: 280px;
-  }
-
-  .about-initial {
-    font-size: 90px;
-  }
-
-  .skills-grid,
-  .works-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .skill p {
-    min-height: auto;
-  }
-
-  .research-content {
-    grid-template-columns: 1fr;
-    padding: 28px;
-  }
-
-  .research-list {
-    border-left: none;
-    border-top: 1px solid rgba(255,255,255,.2);
-    padding: 25px 0 0;
-  }
-
-  .profile-row {
-    grid-template-columns: 95px 1fr;
-  }
-
-  footer {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-  }
-}
-
-@media(prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *, *::before, *::after {
-    transition-duration: .01ms !important;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOUSEI TAKASU | Portfolio</title>
+
+  <style>
+    :root {
+      --background: #f5f5f2;
+      --white: #ffffff;
+      --navy: #17233c;
+      --blue: #4169e1;
+      --light-blue: #e9eefb;
+      --text: #242a35;
+      --sub: #737b89;
+      --line: #dedfdf;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 76px;
+      background: rgba(245, 245, 242, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      z-index: 1000;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      height: 100%;
+      margin: auto;
+      padding: 0 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -2px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 35px;
+      list-style: none;
+    }
+
+    nav a {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--sub);
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--blue);
+    }
+
+    .menu-button {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 25px;
+      cursor: pointer;
+      color: var(--navy);
+    }
+
+    /* COMMON */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 30px;
+    }
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 38px;
+      color: var(--navy);
+      margin-bottom: 45px;
+      letter-spacing: -1px;
+    }
+
+    /* HERO */
+    #home {
+      min-height: 100vh;
+      padding-top: 150px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-small {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(45px, 7vw, 85px);
+      line-height: 1.05;
+      letter-spacing: -4px;
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .hero-title span {
+      color: var(--blue);
+    }
+
+    .hero-subtitle {
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 30px;
+      color: var(--navy);
+    }
+
+    .hero-description {
+      color: var(--sub);
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .hero-visual {
+      height: 400px;
+      background: var(--navy);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-visual::before {
+      content: "";
+      width: 280px;
+      height: 280px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .hero-visual::after {
+      content: "";
+      width: 190px;
+      height: 190px;
+      background: var(--blue);
+      border-radius: 50%;
+      position: absolute;
+      opacity: 0.9;
+      transform: translate(75px, -65px);
+    }
+
+    .hero-mark {
+      color: white;
+      font-size: 100px;
+      font-weight: 800;
+      z-index: 1;
+      letter-spacing: -8px;
+    }
+
+    .hero-number {
+      position: absolute;
+      bottom: 25px;
+      right: 30px;
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+
+    .scroll-text {
+      margin-top: 50px;
+      color: var(--sub);
+      font-size: 11px;
+      letter-spacing: 3px;
+    }
+
+    /* ABOUT */
+    #about {
+      background: var(--white);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .profile-visual {
+      height: 350px;
+      background: var(--light-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+      font-size: 90px;
+      font-weight: 800;
+      letter-spacing: -8px;
+    }
+
+    .about-heading {
+      font-size: 25px;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .about-text {
+      font-size: 14px;
+      color: var(--sub);
+      margin-bottom: 25px;
+    }
+
+    .profile-table {
+      border-top: 1px solid var(--line);
+    }
+
+    .profile-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .profile-row dt {
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .profile-row dd {
+      color: var(--sub);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--white);
+      padding: 35px 28px;
+      border: 1px solid var(--line);
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(23,35,60,0.08);
+    }
+
+    .skill-number {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .skill-card h3 {
+      font-size: 20px;
+      color: var(--navy);
+      margin: 18px 0 12px;
+    }
+
+    .skill-card p {
+      font-size: 13px;
+      color: var(--sub);
+      margin-bottom: 20px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tags span {
+      background: var(--light-blue);
+      color: var(--blue);
+      padding: 5px 10px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* WORKS */
+    #works {
+      background: var(--white);
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
+    }
+
+    .work-card {
+      border: 1px solid var(--line);
+      background: var(--background);
+      transition: 0.3s;
+    }
+
+    .work-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(23,35,60,0.08);
+    }
+
+    .work-image {
+      height: 240px;
+      background: var(--light-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+      font-size: 35px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .work-info {
+      padding: 25px;
+    }
+
+    .work-category {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .work-info h3 {
+      color: var(--navy);
+      font-size: 21px;
+      margin: 8px 0;
+    }
+
+    .work-info p {
+      color: var(--sub);
+      font-size: 13px;
+    }
+
+    /* RESEARCH */
+    .research-panel {
+      background: var(--navy);
+      color: white;
+      padding: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .research-panel::after {
+      content: "AI";
+      position: absolute;
+      right: 30px;
+      bottom: -80px;
+      font-size: 250px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.04);
+    }
+
+    .research-label {
+      color: #91aaff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    .research-panel h3 {
+      font-size: 30px;
+      margin-bottom: 25px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .research-panel p {
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+      max-width: 750px;
+      margin-bottom: 25px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .research-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .research-details span {
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 7px 14px;
+      font-size: 11px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      padding: 25px 30px;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    /* ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: 0.8s;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .header-inner {
+        padding: 0 20px;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: var(--background);
+        border-bottom: 1px solid var(--line);
+      }
+
+      nav.open {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 15px 25px;
+      }
+
+      nav li {
+        padding: 12px 0;
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-visual {
+        height: 280px;
+      }
+
+      .hero-title {
+        font-size: 55px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .profile-visual {
+        height: 250px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .research-panel {
+        padding: 35px 25px;
+      }
+
+      .research-panel h3 {
+        font-size: 23px;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-inner">
-    <a href="#home" class="logo">KT<span>.</span></a>
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="#home" class="logo">KT.</a>
 
-    <button class="menu-toggle" id="menuToggle"
-      aria-label="メニューを開く" aria-expanded="false">☰</button>
+      <button class="menu-button" id="menuButton" aria-label="メニューを開く">
+        ☰
+      </button>
 
-    <nav id="navigation">
-      <a href="#home" class="active">HOME</a>
-      <a href="#about">ABOUT</a>
-      <a href="#skills">SKILLS</a>
-      <a href="#works">WORKS</a>
-      <a href="#research">RESEARCH</a>
-      <a href="#contact" class="nav-contact">CONTACT ↗</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-<!-- HOME -->
-<section id="home">
-  <div class="hero-layout">
-    <div class="hero-copy">
-      <p class="hero-kicker">PORTFOLIO / 2026</p>
-
-      <h1 class="hero-title">
-        KOUSEI<br>
-        <span class="blue">TAKASU.</span>
-      </h1>
-
-      <p class="hero-jp">アイデアを、形にする。</p>
-
-      <p class="hero-description">
-        Web開発、プログラミング、3DCG、AI研究。
-        幅広い分野を学びながら、技術とアイデアを組み合わせた
-        ものづくりに取り組んでいます。
-      </p>
-
-      <div class="hero-links">
-        <a href="#works" class="btn btn-main">
-          VIEW MY WORKS <span>↗</span>
-        </a>
-        <a href="#about" class="btn btn-sub">
-          ABOUT ME <span>↓</span>
-        </a>
-      </div>
+      <nav id="nav">
+        <ul>
+          <li><a href="#home" class="active">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#skills">SKILLS</a></li>
+          <li><a href="#works">WORKS</a></li>
+          <li><a href="#research">RESEARCH</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <div class="hero-art">
-      <div class="art-main">
-        <div class="art-blue"></div>
-        <span class="art-letters">KT</span>
-      </div>
-      <div class="art-caption">DESIGN / CODE / CREATE</div>
-    </div>
-  </div>
-</section>
+  <!-- HOME -->
+  <section id="home">
+    <div class="container">
+      <div class="hero-content">
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">01 / ABOUT</p>
-      <h2 class="section-title">私について</h2>
-      <p class="section-lead">
-        これまでの学びや、ものづくりに取り組むうえで大切にしていること。
-      </p>
-    </div>
+        <div class="reveal">
+          <p class="hero-small">PORTFOLIO / 2026</p>
 
-    <div class="about-layout">
-      <div class="about-visual">
-        <span class="about-initial">KT.</span>
-        <span class="about-caption">KOUSEI TAKASU / PROFILE</span>
-      </div>
+          <h1 class="hero-title">
+            KOUSEI<br>
+            TAKASU<span>.</span>
+          </h1>
 
-      <div class="about-copy">
-        <h3>
-          相手の立場を考え、<br>
-          分かりやすく伝えること。
-        </h3>
+          <p class="hero-subtitle">アイデアを、形にする。</p>
 
-        <p>
-          大学ではメディア情報分野を専攻し、
-          Webサイト開発やプログラミング、3DCGなど、
-          幅広い技術について学んでいます。
-        </p>
-
-        <p>
-          私が大切にしているのは、相手の立場を考えて行動することです。
-          例えば資料を作成する際には、初めて内容を見る人にも
-          基礎から理解してもらえるよう、構成や表現を工夫しています。
-        </p>
-
-        <p>
-          また、制作中に問題が発生しても、原因を考えて改善を繰り返し、
-          粘り強く完成を目指すことを心がけています。
-        </p>
-
-        <dl class="profile-table">
-          <div class="profile-row">
-            <dt>NAME</dt>
-            <dd>高須 弘政 / Kousei Takasu</dd>
-          </div>
-          <div class="profile-row">
-            <dt>FIELD</dt>
-            <dd>メディア情報</dd>
-          </div>
-          <div class="profile-row">
-            <dt>INTEREST</dt>
-            <dd>Web制作・AI・3DCG・ゲーム開発</dd>
-          </div>
-          <div class="profile-row">
-            <dt>STRENGTH</dt>
-            <dd>相手の立場を考え、粘り強く取り組むこと</dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">02 / SKILLS</p>
-      <h2 class="section-title">できること・学んでいること</h2>
-      <p class="section-lead">
-        授業や研究、制作活動を通して身につけてきた技術を紹介します。
-      </p>
-    </div>
-
-    <div class="skills-grid">
-
-      <article class="skill">
-        <div class="skill-top">
-          <span class="skill-number">01 / WEB</span>
-          <span class="skill-icon">W</span>
-        </div>
-        <h3>Web Development</h3>
-        <p>
-          HTMLやCSSなどを使用したWebサイト制作。
-          見やすい画面構成や、利用者にとって分かりやすい
-          デザインを意識しています。
-        </p>
-        <div class="skill-tags">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-          <span>PHP</span>
-        </div>
-      </article>
-
-      <article class="skill">
-        <div class="skill-top">
-          <span class="skill-number">02 / PROGRAMMING</span>
-          <span class="skill-icon">P</span>
-        </div>
-        <h3>Programming & AI</h3>
-        <p>
-          PythonやC++を用いたプログラミング。
-          AI・自然言語処理を活用した研究や、
-          データの処理・分析に取り組んでいます。
-        </p>
-        <div class="skill-tags">
-          <span>Python</span>
-          <span>C++</span>
-          <span>OpenCV</span>
-          <span>LLM</span>
-        </div>
-      </article>
-
-      <article class="skill">
-        <div class="skill-top">
-          <span class="skill-number">03 / CREATIVE</span>
-          <span class="skill-icon">C</span>
-        </div>
-        <h3>Creative & 3D</h3>
-        <p>
-          Unityを使用したゲーム制作や3DCGなど、
-          プログラムだけでなく視覚的な表現にも
-          関心を持って取り組んでいます。
-        </p>
-        <div class="skill-tags">
-          <span>Unity</span>
-          <span>3DCG</span>
-          <span>Game Design</span>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- WORKS -->
-<section id="works">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">03 / WORKS</p>
-      <h2 class="section-title">制作実績</h2>
-      <p class="section-lead">
-        これまでに取り組んだ制作物や開発プロジェクトを紹介します。
-      </p>
-    </div>
-
-    <div class="works-grid">
-
-      <article class="work-card">
-        <div class="work-image one">
-          <span class="work-image-title">UNITY CART</span>
-          <span class="work-image-caption">GAME DEVELOPMENT</span>
-        </div>
-        <div class="work-body">
-          <span class="work-category">01 / GAME</span>
-          <h3>Unity Cart</h3>
-          <p>
-            プレイヤー1台とCPU4台が競争するレースゲーム。
-            直線コースに加速パネルや減速ゾーンを配置し、
-            速度変化を楽しめるゲームを制作しました。
+          <p class="hero-description">
+            Web開発、プログラミング、AI、3DCG。<br>
+            さまざまな技術を活用したものづくりに取り組んでいます。
           </p>
-          <div class="work-meta">
-            <span>Unity</span>
-            <span>C#</span>
-            <span>Game Development</span>
-          </div>
-        </div>
-      </article>
 
-      <article class="work-card">
-        <div class="work-image two">
-          <span class="work-image-title">MATH × AI</span>
-          <span class="work-image-caption">NLP RESEARCH</span>
+          <p class="scroll-text">SCROLL TO EXPLORE ↓</p>
         </div>
-        <div class="work-body">
-          <span class="work-category">02 / AI & RESEARCH</span>
-          <h3>数学解説データセットの構築</h3>
-          <p>
-            既存の数学問題・解答データを活用し、
-            LLMによって解説を自動生成する研究。
-            生成された解説の正確性や読みやすさにも着目しています。
-          </p>
-          <div class="work-meta">
-            <span>Python</span>
-            <span>LLM</span>
-            <span>NLP</span>
-          </div>
-        </div>
-      </article>
 
-      <article class="work-card">
-        <div class="work-image three">
-          <span class="work-image-title">WEB DESIGN</span>
-          <span class="work-image-caption">WEB DEVELOPMENT</span>
+        <div class="hero-visual reveal">
+          <div class="hero-mark">KT.</div>
+          <div class="hero-number">PORTFOLIO 2026</div>
         </div>
-        <div class="work-body">
-          <span class="work-category">03 / WEB</span>
-          <h3>Webサイト制作</h3>
-          <p>
-            HTML・CSS・JavaScriptなどを用いたWebサイト制作。
-            情報を整理し、利用者が必要な情報を
-            見つけやすい画面構成を意識しています。
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+
+      <p class="section-label">01 / ABOUT</p>
+      <h2 class="section-title">自己紹介</h2>
+
+      <div class="about-content">
+
+        <div class="profile-visual reveal">
+          KT.
+        </div>
+
+        <div class="reveal">
+          <h3 class="about-heading">
+            はじめまして。<br>
+            高須弘政です。
+          </h3>
+
+          <p class="about-text">
+            大学ではメディア情報分野を専攻し、
+            Webサイト開発やプログラミング、
+            3DCGなど幅広い分野について学んでいます。
+            また、自然言語処理の研究にも取り組んでおり、
+            AIを活用したシステム開発に興味があります。
           </p>
-          <div class="work-meta">
+
+          <dl class="profile-table">
+            <div class="profile-row">
+              <dt>NAME</dt>
+              <dd>高須 弘政 / Kousei Takasu</dd>
+            </div>
+
+            <div class="profile-row">
+              <dt>FIELD</dt>
+              <dd>メディア情報</dd>
+            </div>
+
+            <div class="profile-row">
+              <dt>INTEREST</dt>
+              <dd>Web開発 / AI / 3DCG</dd>
+            </div>
+
+            <div class="profile-row">
+              <dt>STRENGTH</dt>
+              <dd>相手の立場を考えて行動すること</dd>
+            </div>
+          </dl>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+
+      <p class="section-label">02 / SKILLS</p>
+      <h2 class="section-title">学んできた技術</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-card reveal">
+          <span class="skill-number">01</span>
+          <h3>Web Development</h3>
+          <p>
+            Webサイトの構築を通して、
+            HTMLやCSSなどを使った
+            ページ制作について学んでいます。
+          </p>
+          <div class="skill-tags">
             <span>HTML</span>
             <span>CSS</span>
             <span>JavaScript</span>
+            <span>PHP</span>
           </div>
         </div>
-      </article>
 
-      <article class="work-card">
-        <div class="work-image four">
-          <span class="work-image-title">3D GRAPHICS</span>
-          <span class="work-image-caption">3D CREATIVE</span>
-        </div>
-        <div class="work-body">
-          <span class="work-category">04 / CREATIVE</span>
-          <h3>3DCG制作</h3>
+        <div class="skill-card reveal">
+          <span class="skill-number">02</span>
+          <h3>Programming & AI</h3>
           <p>
-            3DCGを用いたモデリングやビジュアル表現を学習。
-            立体的な形状や空間を表現する制作に取り組んでいます。
+            Pythonなどを用いたプログラミングや、
+            AI・自然言語処理に関する研究に
+            取り組んでいます。
           </p>
-          <div class="work-meta">
-            <span>3DCG</span>
-            <span>Modeling</span>
+          <div class="skill-tags">
+            <span>Python</span>
+            <span>C++</span>
+            <span>OpenCV</span>
+            <span>LLM</span>
           </div>
         </div>
-      </article>
 
+        <div class="skill-card reveal">
+          <span class="skill-number">03</span>
+          <h3>Creative & 3D</h3>
+          <p>
+            3DCG制作やUnityを使用したゲーム開発を通して、
+            アイデアを実際の作品として
+            形にする経験を積んでいます。
+          </p>
+          <div class="skill-tags">
+            <span>Unity</span>
+            <span>C#</span>
+            <span>3DCG</span>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- RESEARCH -->
-<section id="research">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">04 / RESEARCH</p>
+  <!-- WORKS -->
+  <section id="works">
+    <div class="container">
+
+      <p class="section-label">03 / WORKS</p>
+      <h2 class="section-title">制作実績</h2>
+
+      <div class="works-grid">
+
+        <div class="work-card reveal">
+          <div class="work-image">
+            UNITY CART
+          </div>
+          <div class="work-info">
+            <span class="work-category">GAME DEVELOPMENT</span>
+            <h3>Unity Cart</h3>
+            <p>
+              Unityを使用して制作したレースゲームです。
+              プレイヤー1台とCPU4台が直線コースを走行し、
+              加速パネルや減速エリアを利用してゴールを目指します。
+            </p>
+          </div>
+        </div>
+
+        <div class="work-card reveal">
+          <div class="work-image">
+            MATH × AI
+          </div>
+          <div class="work-info">
+            <span class="work-category">AI DEVELOPMENT</span>
+            <h3>数学解説システム</h3>
+            <p>
+              大規模言語モデルを活用し、
+              数学の問題と解答から解説を生成する
+              システムの開発に取り組んでいます。
+            </p>
+          </div>
+        </div>
+
+        <div class="work-card reveal">
+          <div class="work-image">
+            WEB DESIGN
+          </div>
+          <div class="work-info">
+            <span class="work-category">WEB DEVELOPMENT</span>
+            <h3>Webサイト制作</h3>
+            <p>
+              HTMLやCSS、JavaScriptなどを使用して、
+              Webサイトのデザインや機能の実装を
+              学びながら制作しています。
+            </p>
+          </div>
+        </div>
+
+        <div class="work-card reveal">
+          <div class="work-image">
+            3D GRAPHICS
+          </div>
+          <div class="work-info">
+            <span class="work-category">3D CREATION</span>
+            <h3>3DCG制作</h3>
+            <p>
+              3DCGソフトを使用して、
+              モデリングや作品制作に取り組んでいます。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="container">
+
+      <p class="section-label">04 / RESEARCH</p>
       <h2 class="section-title">研究活動</h2>
-      <p class="section-lead">
-        大学で取り組んでいる研究テーマと、その目的を紹介します。
-      </p>
-    </div>
 
-    <div class="research-content">
-      <div>
-        <span class="research-label">NATURAL LANGUAGE PROCESSING</span>
+      <div class="research-panel reveal">
+
+        <p class="research-label">NATURAL LANGUAGE PROCESSING</p>
 
         <h3>
           LLMを活用した<br>
@@ -1250,141 +817,89 @@ footer strong {
         </h3>
 
         <p>
-          近年、LLMの学習を目的として、数学の問題と解答を
-          含むデータセットが構築されています。
+          近年、大規模言語モデルの学習を目的として、
+          数学の問題と解答を含むデータセットが構築されています。
           一方で、数学の解説を対象としたデータセットは
           十分に整備されていません。
         </p>
 
         <p>
-          そこで、既存の問題・解答データをもとに
-          LLMで解説を自動生成し、数学解説データセットを
-          構築する研究に取り組んでいます。
+          そこで、既存の問題・解答データセットを活用し、
+          LLMによって数学の解説を自動生成することで、
+          数学解説データセットの構築に取り組んでいます。
         </p>
 
-        <p>
-          特に、AIが生成する文章を人が読みやすい形式に整えるため、
-          プロンプトや出力形式の改善を繰り返しています。
-        </p>
-      </div>
-
-      <div class="research-list">
-        <div class="research-item">
-          <span>THEME</span>
-          <strong>数学解説データセットの構築</strong>
+        <div class="research-details">
+          <span>Python</span>
+          <span>LLM</span>
+          <span>自然言語処理</span>
+          <span>データセット構築</span>
         </div>
 
-        <div class="research-item">
-          <span>TECHNOLOGY</span>
-          <strong>Python / LLM / 自然言語処理</strong>
-        </div>
-
-        <div class="research-item">
-          <span>CHALLENGE</span>
-          <strong>生成文章の正確性・読みやすさの改善</strong>
-        </div>
-
-        <div class="research-item">
-          <span>GOAL</span>
-          <strong>数学を理解しやすくするためのデータ整備</strong>
-        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-box">
-      <p class="eyebrow" style="justify-content:center;">05 / CONTACT</p>
-      <h2>LET'S CONNECT.</h2>
-      <p>
-        最後までご覧いただきありがとうございます。<br>
-        お問い合わせはこちらからお願いいたします。
-      </p>
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 KOUSEI TAKASU. ALL RIGHTS RESERVED.</p>
+  </footer>
 
-      <!-- メールアドレスを変更 -->
-      <a class="contact-button"
-         href="mailto:ここにメールアドレスを入力">
-        CONTACT ME ↗
-      </a>
-    </div>
-  </div>
-</section>
+  <script>
+    // スマートフォン用メニュー
+    const menuButton = document.getElementById("menuButton");
+    const nav = document.getElementById("nav");
 
-</main>
+    menuButton.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
 
-<footer>
-  <strong>KT.</strong>
-  <span>© 2026 KOUSEI TAKASU</span>
-  <a href="#home">BACK TO TOP ↑</a>
-</footer>
-
-<script>
-// スマートフォン用メニュー
-const menuToggle = document.getElementById("menuToggle");
-const navigation = document.getElementById("navigation");
-
-menuToggle.addEventListener("click", () => {
-  const opened = navigation.classList.toggle("open");
-  menuToggle.textContent = opened ? "×" : "☰";
-  menuToggle.setAttribute("aria-expanded", opened);
-});
-
-// メニューをクリックしたら閉じる
-document.querySelectorAll("#navigation a").forEach(link => {
-  link.addEventListener("click", () => {
-    navigation.classList.remove("open");
-    menuToggle.textContent = "☰";
-    menuToggle.setAttribute("aria-expanded", "false");
-  });
-});
-
-// スクロール時の表示アニメーション
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.12
-});
-
-document.querySelectorAll(
-  ".hero-copy, .hero-art, .section-head, .about-layout, .skill, .work-card, .research-content, .contact-box"
-).forEach(element => {
-  element.classList.add("fade-up");
-  revealObserver.observe(element);
-});
-
-// 現在表示しているセクションに合わせてメニューを変更
-const pageSections = document.querySelectorAll("main section");
-const pageLinks = document.querySelectorAll(
-  "#navigation a:not(.nav-contact)"
-);
-
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      pageLinks.forEach(link => {
-        link.classList.toggle(
-          "active",
-          link.getAttribute("href") === "#" + entry.target.id
-        );
+    // メニューをクリックしたら閉じる
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
       });
-    }
-  });
-}, {
-  rootMargin: "-35% 0px -55% 0px"
-});
+    });
 
-pageSections.forEach(section => {
-  sectionObserver.observe(section);
-});
-</script>
+    // スクロール時の表示アニメーション
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    document.querySelectorAll(".reveal").forEach(element => {
+      observer.observe(element);
+    });
+
+    // 現在表示しているセクションに合わせてメニューを変更
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
