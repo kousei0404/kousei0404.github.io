@@ -2,429 +2,903 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="KOUSEI TAKASUのポートフォリオサイト">
-  <title>KOUSEI TAKASU | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KOUSEI TAKASUのポートフォリオサイト">
+<title>Kousei Takasu | Portfolio</title>
 
-  <style>
-    :root {
-      --bg: #f5f7fb;
-      --surface: #ffffff;
-      --text: #172033;
-      --muted: #68738a;
-      --accent: #4776e6;
-      --accent-light: #eaf0ff;
-      --line: #e5eaf2;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-    * {
-      box-sizing: border-box;
-    }
+<style>
+:root {
+  --bg: #f5f3ee;
+  --white: #ffffff;
+  --text: #292820;
+  --muted: #77766e;
+  --accent: #8b7555;
+  --dark: #33352e;
+  --line: #dedbd2;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      color: var(--text);
-      background: var(--bg);
-      font-family: -apple-system, BlinkMacSystemFont,
-        "Segoe UI", "Noto Sans JP", sans-serif;
-      line-height: 1.7;
-    }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.9;
+}
 
-    .wrap {
-      width: min(1080px, calc(100% - 40px));
-      margin: 0 auto;
-    }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(255,255,255,.92);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(12px);
-    }
+.wrap {
+  width: min(1120px, calc(100% - 48px));
+  margin: auto;
+}
 
-    .nav {
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(245,243,238,.94);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
 
-    .brand {
-      font-weight: 800;
-      letter-spacing: .08em;
-    }
+.nav {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    nav {
-      display: flex;
-      gap: 25px;
-      color: var(--muted);
-      font-size: .92rem;
-    }
+.brand {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
 
-    nav a:hover {
-      color: var(--accent);
-    }
+nav {
+  display: flex;
+  gap: 34px;
+  font-size: .83rem;
+  letter-spacing: .08em;
+}
 
-    .hero {
-      padding: 105px 0 95px;
-    }
+nav a {
+  transition: color .3s;
+}
 
-    .eyebrow {
-      color: var(--accent);
-      font-size: .82rem;
-      font-weight: 800;
-      letter-spacing: .2em;
-    }
+nav a:hover {
+  color: var(--accent);
+}
 
-    h1 {
-      margin: 12px 0 8px;
-      font-size: clamp(2.8rem, 8vw, 5.8rem);
-      line-height: 1.05;
-      letter-spacing: -.055em;
-    }
+/* HERO */
+.hero {
+  min-height: 650px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+  padding-top: 65px;
+  padding-bottom: 80px;
+}
 
-    .hero p {
-      max-width: 620px;
-      color: var(--muted);
-      font-size: 1.08rem;
-      margin: 22px 0 30px;
-    }
+.hero-label {
+  font-size: .75rem;
+  color: var(--accent);
+  letter-spacing: .25em;
+  font-weight: 700;
+}
 
-    .button {
-      display: inline-block;
-      padding: 12px 22px;
-      border-radius: 999px;
-      color: white;
-      background: var(--accent);
-      font-weight: 700;
-      box-shadow: 0 8px 22px rgba(71,118,230,.2);
-    }
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  line-height: 1.08;
+  margin: 22px 0;
+  font-weight: 600;
+  letter-spacing: -.04em;
+}
 
-    .button:hover {
-      transform: translateY(-2px);
-    }
+.hero h1 span {
+  display: block;
+}
 
-    section {
-      padding: 72px 0;
-    }
+.hero h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: .13em;
+  margin: 0;
+}
 
-    .section-title {
-      margin: 0 0 8px;
-      font-size: 2rem;
-      letter-spacing: -.03em;
-    }
+.hero-description {
+  color: var(--muted);
+  font-size: .9rem;
+  max-width: 480px;
+  margin: 25px 0 35px;
+}
 
-    .section-lead {
-      color: var(--muted);
-      margin: 0 0 28px;
-    }
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  padding: 13px 25px;
+  background: var(--dark);
+  color: white;
+  font-size: .82rem;
+  letter-spacing: .08em;
+  transition: .3s;
+}
 
-    .panel, .work-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 10px 35px rgba(30,50,90,.04);
-    }
+.button:hover {
+  background: var(--accent);
+  transform: translateY(-3px);
+}
 
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 22px;
-    }
+.button span {
+  font-size: 1.1rem;
+}
 
-    .profile-grid p {
-      color: var(--muted);
-      margin-bottom: 0;
-    }
+/* HERO VISUAL */
+.hero-visual {
+  height: 470px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e6e1d5;
+  overflow: hidden;
+}
 
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 18px;
-    }
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  border: 1px solid rgba(139,117,85,.5);
+  border-radius: 50%;
+}
 
-    .tag {
-      background: var(--accent-light);
-      color: #345fc2;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: .86rem;
-      font-weight: 650;
-    }
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgba(139,117,85,.35);
+  border-radius: 50%;
+}
 
-    .works {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
+.visual-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
 
-    .work-card h3 {
-      margin: 0 0 8px;
-    }
+.visual-content .symbol {
+  font-family: "Playfair Display", serif;
+  font-size: 9rem;
+  color: #8b7555;
+  line-height: 1;
+}
 
-    .work-card p {
-      margin: 0;
-      color: var(--muted);
-    }
+.visual-content p {
+  font-family: "Playfair Display", serif;
+  letter-spacing: .25em;
+  font-size: .8rem;
+  margin-top: 15px;
+}
 
-    .work-label {
-      color: var(--accent);
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .12em;
-    }
+.visual-number {
+  position: absolute;
+  right: 25px;
+  bottom: 20px;
+  color: #77766e;
+  font-family: "Playfair Display", serif;
+  font-size: .8rem;
+}
 
-    .contact {
-      text-align: center;
-      background: #172033;
-      color: white;
-      border-radius: 24px;
-      padding: 48px 24px;
-    }
+/* SECTION COMMON */
+section {
+  padding: 100px 0;
+}
 
-    .contact p {
-      color: #c2cada;
-      margin-bottom: 24px;
-    }
+.section-heading {
+  margin-bottom: 45px;
+}
 
-    footer {
-      padding: 28px 0;
-      color: var(--muted);
-      text-align: center;
-      font-size: .85rem;
-    }
+.section-en {
+  color: var(--accent);
+  font-family: "Playfair Display", serif;
+  font-size: .85rem;
+  letter-spacing: .2em;
+}
 
-    /* スマートフォン対応 */
-    @media (max-width: 700px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 14px 0;
-        gap: 8px;
-      }
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  font-weight: 500;
+  margin: 5px 0;
+  line-height: 1.3;
+}
 
-      nav {
-        gap: 16px;
-        flex-wrap: wrap;
-        font-size: .85rem;
-      }
+.section-subtitle {
+  font-size: .85rem;
+  color: var(--muted);
+}
 
-      .hero {
-        padding: 76px 0 65px;
-      }
+/* ABOUT */
+#about {
+  background: var(--white);
+}
 
-      section {
-        padding: 52px 0;
-      }
+.about-grid {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 75px;
+  align-items: center;
+}
 
-      .profile-grid, .works {
-        grid-template-columns: 1fr;
-      }
+.about-visual {
+  min-height: 390px;
+  background: #e7e1d5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
-      .panel, .work-card {
-        padding: 22px;
-      }
-    }
-  </style>
+.about-visual::before {
+  content: "";
+  width: 75%;
+  height: 75%;
+  border: 1px solid #a8997e;
+  position: absolute;
+}
+
+.about-visual p {
+  position: relative;
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  color: #77674f;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.about-text h3 {
+  font-size: 1.45rem;
+  margin-top: 0;
+  font-weight: 600;
+}
+
+.about-text p {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.about-detail {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  font-size: .85rem;
+}
+
+.about-detail span:first-child {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* INTEREST */
+.interest {
+  margin-top: 55px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.interest h3 {
+  font-size: 1rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag {
+  border: 1px solid #c9c3b7;
+  padding: 7px 17px;
+  font-size: .8rem;
+  color: #6d624f;
+}
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.skill-item {
+  padding: 32px 25px;
+  background: var(--white);
+  border-top: 3px solid #9b896d;
+}
+
+.skill-number {
+  color: var(--accent);
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+}
+
+.skill-item h3 {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.skill-item p {
+  color: var(--muted);
+  font-size: .83rem;
+  margin-bottom: 0;
+}
+
+/* WORKS */
+#works {
+  background: #eae7df;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.work-card {
+  background: var(--white);
+  transition: transform .3s;
+}
+
+.work-card:hover {
+  transform: translateY(-6px);
+}
+
+.work-visual {
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.work-visual.research {
+  background: #dce2dc;
+}
+
+.work-visual.game {
+  background: #d9d5c9;
+}
+
+.work-visual.web {
+  background: #dce1e7;
+}
+
+.work-visual.media {
+  background: #e6dcd2;
+}
+
+.work-symbol {
+  font-family: "Playfair Display", serif;
+  font-size: 4rem;
+  color: rgba(50,50,40,.65);
+  letter-spacing: .05em;
+}
+
+.work-info {
+  padding: 27px 30px 32px;
+}
+
+.work-label {
+  color: var(--accent);
+  font-size: .72rem;
+  letter-spacing: .17em;
+  font-weight: 700;
+}
+
+.work-info h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.work-info p {
+  color: var(--muted);
+  font-size: .85rem;
+  margin: 0;
+}
+
+/* CONTACT */
+#contact {
+  padding: 110px 0;
+}
+
+.contact-inner {
+  text-align: center;
+  background: var(--dark);
+  color: white;
+  padding: 75px 25px;
+}
+
+.contact-inner .section-en {
+  color: #c8b99f;
+}
+
+.contact-inner h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.contact-inner p {
+  color: #d0cec7;
+  font-size: .85rem;
+  margin-bottom: 30px;
+}
+
+.contact-inner .button {
+  background: #f5f3ee;
+  color: var(--dark);
+}
+
+.contact-inner .button:hover {
+  background: #c8b99f;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 30px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-brand {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+}
+
+footer p {
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+/* ANIMATION */
+.fade-in {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .8s, transform .8s;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width: 750px) {
+  .wrap {
+    width: calc(100% - 36px);
+  }
+
+  .nav {
+    height: auto;
+    min-height: 70px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 12px 0;
+    gap: 8px;
+  }
+
+  nav {
+    gap: 18px;
+    font-size: .75rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-top: 65px;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .hero-visual {
+    height: 330px;
+  }
+
+  .visual-content .symbol {
+    font-size: 7rem;
+  }
+
+  section {
+    padding: 70px 0;
+  }
+
+  .section-title {
+    font-size: 2.1rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .about-visual {
+    min-height: 280px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-visual {
+    height: 210px;
+  }
+
+  .contact-inner {
+    padding: 55px 18px;
+  }
+
+  .contact-inner h2 {
+    font-size: 2.2rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- ヘッダー -->
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="#top">KOUSEI TAKASU</a>
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">Kousei Takasu</a>
 
-      <nav aria-label="メインナビゲーション">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#works">Works</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <nav aria-label="メインナビゲーション">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#works">Works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <main id="top">
+<main id="top">
 
-    <!-- トップページ -->
-    <div class="wrap hero">
-      <div class="eyebrow">PORTFOLIO</div>
+  <!-- HERO -->
+  <div class="wrap hero">
 
-      <h1>KOUSEI<br>TAKASU</h1>
+    <div class="hero-text">
+      <div class="hero-label">WELCOME TO MY PORTFOLIO</div>
 
-      <p>
-        Web制作や3DCG、プログラミングなど、
+      <h1>
+        Kousei
+        <span>Takasu.</span>
+      </h1>
+
+      <h2>Creating ideas, shaping the future.</h2>
+
+      <p class="hero-description">
+        Webサイト開発やゲーム制作、3DCGなど、
         さまざまな技術を使ったものづくりに取り組んでいます。
-        アイデアを形にし、使う人にとって分かりやすく、
-        使いやすい表現を目指しています。
+        アイデアを形にし、使う人にとって分かりやすい
+        作品を制作することを大切にしています。
       </p>
 
-      <a class="button" href="#works">作品を見る</a>
+      <a href="#works" class="button">
+        VIEW MY WORKS <span>→</span>
+      </a>
     </div>
 
-    <!-- 自己紹介 -->
-    <section id="about">
-      <div class="wrap">
+    <div class="hero-visual">
+      <div class="visual-content">
+        <div class="symbol">K</div>
+        <p>DESIGN & CREATION</p>
+      </div>
+      <div class="visual-number">PORTFOLIO / 2026</div>
+    </div>
 
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap fade-in">
+
+      <div class="section-heading">
+        <div class="section-en">01 / ABOUT</div>
         <h2 class="section-title">About Me</h2>
-        <p class="section-lead">自己紹介</p>
+        <div class="section-subtitle">私について</div>
+      </div>
 
-        <div class="profile-grid">
+      <div class="about-grid">
 
-          <div class="panel">
-            <h3>こんにちは、KOUSEI TAKASUです。</h3>
+        <div class="about-visual">
+          <p>Ideas<br>into<br>Reality.</p>
+        </div>
 
-            <p>
-              メディア情報分野を学びながら、
-              Webサイト開発や3DCG、ゲーム制作などに
-              取り組んでいます。
-              制作するときは、自分だけでなく、
-              初めて触れる人にも内容が伝わることを
-              大切にしています。
-            </p>
+        <div class="about-text">
+          <h3>こんにちは、高須 弘政です。</h3>
+
+          <p>
+            メディア情報専攻でプログラミングを学びながら、
+            Webサイト開発や3DCG、ゲーム制作などに
+            取り組んでいます。
+          </p>
+
+          <p>
+            制作するときは、自分だけでなく、
+            初めて触れる人にも内容が伝わることを
+            大切にしています。
+          </p>
+
+          <p>
+            新しい技術を学びながら、自分のアイデアを
+            実際に形にしていくことに面白さを感じています。
+          </p>
+
+          <div class="about-detail">
+            <span>Name</span>
+            <span>Kousei Takasu</span>
           </div>
 
-          <div class="panel">
-            <h3>Interest</h3>
-
-            <p>
-              興味のある分野や、これから深めていきたいこと
-            </p>
-
-            <div class="tag-list">
-              <span class="tag">Web Development</span>
-              <span class="tag">3DCG</span>
-              <span class="tag">AI / NLP</span>
-              <span class="tag">Game Development</span>
-            </div>
+          <div class="about-detail">
+            <span>Major</span>
+            <span>Media Information</span>
           </div>
 
+          <div class="about-detail">
+            <span>Interest</span>
+            <span>Web / 3DCG / AI / Game</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="interest">
+        <h3>INTEREST</h3>
+        <div class="tag-list">
+          <span class="tag">Web Development</span>
+          <span class="tag">3DCG</span>
+          <span class="tag">AI / NLP</span>
+          <span class="tag">Game Development</span>
         </div>
       </div>
-    </section>
 
-    <!-- スキル -->
-    <section id="skills">
-      <div class="wrap">
+    </div>
+  </section>
 
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap fade-in">
+
+      <div class="section-heading">
+        <div class="section-en">02 / SKILLS</div>
         <h2 class="section-title">Skills</h2>
-        <p class="section-lead">
-          学習・制作で使用している技術
-        </p>
+        <div class="section-subtitle">学習・制作で使用している技術</div>
+      </div>
 
-        <div class="panel">
-          <div class="tag-list">
-            <span class="tag">HTML / CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Python</span>
-            <span class="tag">C++</span>
-            <span class="tag">Unity</span>
-            <span class="tag">OpenCV</span>
-            <span class="tag">3DCG</span>
-          </div>
+      <div class="skills-grid">
+
+        <div class="skill-item">
+          <div class="skill-number">01</div>
+          <h3>Web Development</h3>
+          <p>
+            HTML / CSS / JavaScriptを使用した
+            Webサイトの制作。
+          </p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-number">02</div>
+          <h3>Programming</h3>
+          <p>
+            PythonやC++を使用した
+            プログラミング・システム開発。
+          </p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-number">03</div>
+          <h3>Creative</h3>
+          <p>
+            Unityや3DCG、OpenCVなどを使用した
+            デジタルコンテンツ制作。
+          </p>
         </div>
 
       </div>
-    </section>
 
-    <!-- 制作物・研究 -->
-    <section id="works">
-      <div class="wrap">
+      <div class="interest">
+        <h3>TECHNOLOGY</h3>
+        <div class="tag-list">
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Python</span>
+          <span class="tag">C++</span>
+          <span class="tag">Unity</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">3DCG</span>
+        </div>
+      </div>
 
-        <h2 class="section-title">Works</h2>
-        <p class="section-lead">制作・研究の一部</p>
+    </div>
+  </section>
 
-        <div class="works">
+  <!-- WORKS -->
+  <section id="works">
+    <div class="wrap fade-in">
 
-          <article class="work-card">
-            <div class="work-label">RESEARCH</div>
+      <div class="section-heading">
+        <div class="section-en">03 / WORKS</div>
+        <h2 class="section-title">Selected Works</h2>
+        <div class="section-subtitle">制作・研究の一部をご紹介します</div>
+      </div>
+
+      <div class="works-grid">
+
+        <article class="work-card">
+          <div class="work-visual research">
+            <div class="work-symbol">Research</div>
+          </div>
+          <div class="work-info">
+            <div class="work-label">RESEARCH / NLP</div>
             <h3>数学解説データセットの構築</h3>
             <p>
-              数学の問題と解答から、
-              学習に役立つ解説を生成し、
-              分かりやすい数学解説の実現を目指す
-              研究に取り組んでいます。
+              数学の問題と解答から、学習に役立つ解説を生成し、
+              数学解説データセットの構築に取り組んでいます。
+              LLMを活用した解説生成の品質向上を目指しています。
             </p>
-          </article>
+          </div>
+        </article>
 
-          <article class="work-card">
+        <article class="work-card">
+          <div class="work-visual game">
+            <div class="work-symbol">Unity Cart</div>
+          </div>
+          <div class="work-info">
             <div class="work-label">GAME DEVELOPMENT</div>
             <h3>Unity Cart</h3>
             <p>
               Unityを使用したレースゲームです。
               加速パネルや減速エリアを取り入れ、
-              操作によるスピードの変化を楽しめる
-              作品を制作しました。
+              操作によるスピードの変化を楽しめる作品を制作しました。
             </p>
-          </article>
+          </div>
+        </article>
 
-          <article class="work-card">
+        <article class="work-card">
+          <div class="work-visual web">
+            <div class="work-symbol">Web Design</div>
+          </div>
+          <div class="work-info">
             <div class="work-label">WEB DEVELOPMENT</div>
             <h3>Webサイト制作</h3>
             <p>
-              HTMLやCSSなどを使い、
+              HTMLやCSSなどを使用し、
               情報を整理して見やすく伝える
               Webページの制作に取り組んでいます。
             </p>
-          </article>
+          </div>
+        </article>
 
-          <article class="work-card">
+        <article class="work-card">
+          <div class="work-visual media">
+            <div class="work-symbol">3D / Media</div>
+          </div>
+          <div class="work-info">
             <div class="work-label">3D / MEDIA</div>
             <h3>3DCG・メディア制作</h3>
             <p>
               3DCGをはじめとするデジタル表現について学び、
-              さまざまな制作方法を試しています。
+              さまざまな制作方法を試しながら
+              表現の幅を広げています。
             </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- お問い合わせ -->
-    <section id="contact">
-      <div class="wrap">
-
-        <div class="contact">
-          <h2 class="section-title">Contact</h2>
-
-          <p>ご覧いただきありがとうございます。</p>
-
-          <a class="button" href="#top">トップに戻る</a>
-        </div>
+          </div>
+        </article>
 
       </div>
-    </section>
-
-  </main>
-
-  <!-- フッター -->
-  <footer>
-    <div class="wrap">
-      © <span id="year"></span> KOUSEI TAKASU
     </div>
-  </footer>
+  </section>
 
-  <!-- JavaScript -->
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-inner fade-in">
+        <div class="section-en">04 / CONTACT</div>
+        <h2>Thank You.</h2>
+        <p>
+          最後までご覧いただきありがとうございます。
+          <br>
+          これからもさまざまなものづくりに挑戦していきます。
+        </p>
+        <a href="#top" class="button">
+          BACK TO TOP <span>↑</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">Kousei Takasu</div>
+    <p>© <span id="year"></span> KOUSEI TAKASU. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // 年号を自動表示
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  // スクロール時のフェードイン
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12
+  });
+
+  document.querySelectorAll(".fade-in").forEach(element => {
+    observer.observe(element);
+  });
+</script>
 
 </body>
 </html>
