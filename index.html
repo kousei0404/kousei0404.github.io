@@ -4,39 +4,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="KOUSEI TAKASUのポートフォリオサイト">
-<title>Kousei Takasu | Portfolio</title>
+<meta name="description" content="KOUSEI TAKASU - Creative Portfolio">
+<title>KOUSEI TAKASU | Portfolio</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #f5f3ee;
-  --white: #ffffff;
-  --text: #292820;
-  --muted: #77766e;
-  --accent: #8b7555;
-  --dark: #33352e;
-  --line: #dedbd2;
+  --bg: #151715;
+  --surface: #20231f;
+  --surface2: #292d27;
+  --text: #f2f1e9;
+  --muted: #999e92;
+  --line: #373c34;
+  --accent: #d8f36a;
+  --dark: #151715;
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 85px;
+  scroll-padding-top: 90px;
 }
 
 body {
-  margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Noto Sans JP", sans-serif;
-  line-height: 1.9;
+  font-family: "DM Sans", "Noto Sans JP", sans-serif;
+  line-height: 1.8;
+  overflow-x: hidden;
 }
 
 a {
@@ -44,19 +47,34 @@ a {
   text-decoration: none;
 }
 
+button {
+  font: inherit;
+}
+
 .wrap {
-  width: min(1120px, calc(100% - 48px));
-  margin: auto;
+  width: min(1240px, calc(100% - 80px));
+  margin: 0 auto;
+}
+
+.mono {
+  font-family: "DM Mono", monospace;
+}
+
+.accent {
+  color: var(--accent);
 }
 
 /* HEADER */
+
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
-  background: rgba(245,243,238,.94);
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(12px);
+  background: rgba(21,23,21,.85);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255,255,255,.07);
 }
 
 .nav {
@@ -66,412 +84,660 @@ header {
   justify-content: space-between;
 }
 
-.brand {
-  font-family: "Playfair Display", serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: .04em;
+.logo {
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: -.05em;
+}
+
+.logo span {
+  color: var(--accent);
 }
 
 nav {
   display: flex;
+  align-items: center;
   gap: 34px;
-  font-size: .83rem;
-  letter-spacing: .08em;
 }
 
 nav a {
-  transition: color .3s;
+  color: #b7baaf;
+  font-size: .78rem;
+  font-family: "DM Mono", monospace;
+  transition: .3s;
 }
 
 nav a:hover {
   color: var(--accent);
 }
 
+.nav-contact {
+  border: 1px solid var(--line);
+  padding: 8px 17px;
+}
+
+.nav-contact:hover {
+  background: var(--accent);
+  color: var(--dark);
+  border-color: var(--accent);
+}
+
 /* HERO */
+
 .hero {
-  min-height: 650px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 50px;
-  padding-top: 65px;
+  min-height: 850px;
+  padding-top: 145px;
   padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
 }
 
 .hero-label {
-  font-size: .75rem;
   color: var(--accent);
-  letter-spacing: .25em;
-  font-weight: 700;
+  font-family: "DM Mono", monospace;
+  font-size: .75rem;
+  letter-spacing: .13em;
+}
+
+.hero-status {
+  color: var(--muted);
+  font-family: "DM Mono", monospace;
+  font-size: .7rem;
 }
 
 .hero h1 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(3.5rem, 7vw, 6.5rem);
-  line-height: 1.08;
-  margin: 22px 0;
-  font-weight: 600;
-  letter-spacing: -.04em;
+  font-size: clamp(4rem, 12.5vw, 11rem);
+  line-height: .86;
+  font-weight: 900;
+  letter-spacing: -.085em;
+  text-transform: uppercase;
 }
 
-.hero h1 span {
-  display: block;
+.hero h1 .second {
+  display: flex;
+  align-items: center;
+  gap: 22px;
 }
 
-.hero h2 {
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: .13em;
-  margin: 0;
+.hero h1 .outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #777d70;
+}
+
+.hero h1 .dot {
+  color: var(--accent);
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-top: 65px;
+  gap: 30px;
 }
 
 .hero-description {
-  color: var(--muted);
+  max-width: 440px;
+  color: #a7aa9f;
   font-size: .9rem;
-  max-width: 480px;
-  margin: 25px 0 35px;
+  line-height: 2;
 }
 
-.button {
+.hero-description strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.hero-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.primary-button {
   display: inline-flex;
   align-items: center;
   gap: 25px;
-  padding: 13px 25px;
-  background: var(--dark);
-  color: white;
-  font-size: .82rem;
-  letter-spacing: .08em;
+  padding: 15px 22px;
+  background: var(--accent);
+  color: var(--dark);
+  font-size: .78rem;
+  font-weight: 800;
   transition: .3s;
 }
 
-.button:hover {
-  background: var(--accent);
-  transform: translateY(-3px);
+.primary-button:hover {
+  background: white;
+  transform: translateY(-4px);
 }
 
-.button span {
-  font-size: 1.1rem;
+.primary-button span {
+  font-size: 1.2rem;
 }
 
-/* HERO VISUAL */
-.hero-visual {
-  height: 470px;
-  position: relative;
+.hero-decoration {
+  position: absolute;
+  top: 185px;
+  right: 4%;
+  width: 90px;
+  height: 90px;
+  border: 1px solid #59604e;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e6e1d5;
+  color: var(--accent);
+  font-size: 1.7rem;
+  transform: rotate(-20deg);
+}
+
+/* MARQUEE */
+
+.marquee {
+  background: var(--accent);
+  color: var(--dark);
   overflow: hidden;
+  padding: 14px 0;
+  white-space: nowrap;
 }
 
-.hero-visual::before {
-  content: "";
-  position: absolute;
-  width: 330px;
-  height: 330px;
-  border: 1px solid rgba(139,117,85,.5);
-  border-radius: 50%;
+.marquee-inner {
+  display: inline-flex;
+  animation: marquee 25s linear infinite;
 }
 
-.hero-visual::after {
-  content: "";
-  position: absolute;
-  width: 250px;
-  height: 250px;
-  border: 1px solid rgba(139,117,85,.35);
-  border-radius: 50%;
+.marquee span {
+  font-family: "DM Mono", monospace;
+  font-size: .85rem;
+  font-weight: 500;
+  padding: 0 30px;
 }
 
-.visual-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-.visual-content .symbol {
-  font-family: "Playfair Display", serif;
-  font-size: 9rem;
-  color: #8b7555;
+/* COMMON SECTION */
+
+section {
+  padding: 125px 0;
+}
+
+.section-top {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  margin-bottom: 65px;
+}
+
+.section-index {
+  font-family: "DM Mono", monospace;
+  color: var(--accent);
+  font-size: .78rem;
+  letter-spacing: .1em;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -.07em;
   line-height: 1;
 }
 
-.visual-content p {
-  font-family: "Playfair Display", serif;
-  letter-spacing: .25em;
+.section-title span {
+  color: var(--accent);
+}
+
+.section-jp {
+  color: var(--muted);
   font-size: .8rem;
   margin-top: 15px;
 }
 
-.visual-number {
-  position: absolute;
-  right: 25px;
-  bottom: 20px;
-  color: #77766e;
-  font-family: "Playfair Display", serif;
-  font-size: .8rem;
-}
-
-/* SECTION COMMON */
-section {
-  padding: 100px 0;
-}
-
-.section-heading {
-  margin-bottom: 45px;
-}
-
-.section-en {
-  color: var(--accent);
-  font-family: "Playfair Display", serif;
-  font-size: .85rem;
-  letter-spacing: .2em;
-}
-
-.section-title {
-  font-family: "Playfair Display", serif;
-  font-size: 2.6rem;
-  font-weight: 500;
-  margin: 5px 0;
-  line-height: 1.3;
-}
-
-.section-subtitle {
-  font-size: .85rem;
+.section-note {
+  max-width: 260px;
   color: var(--muted);
+  font-size: .78rem;
+  line-height: 2;
 }
 
 /* ABOUT */
+
 #about {
-  background: var(--white);
+  background: #1b1e1a;
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: .85fr 1.15fr;
-  gap: 75px;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 90px;
   align-items: center;
 }
 
 .about-visual {
-  min-height: 390px;
-  background: #e7e1d5;
+  min-height: 470px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 45%, #4e5b3d 0%, #293327 38%, #20251f 75%);
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+}
+
+.about-visual::before,
+.about-visual::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(216,243,106,.35);
+  border-radius: 50%;
 }
 
 .about-visual::before {
-  content: "";
-  width: 75%;
-  height: 75%;
-  border: 1px solid #a8997e;
-  position: absolute;
+  width: 310px;
+  height: 310px;
 }
 
-.about-visual p {
+.about-visual::after {
+  width: 400px;
+  height: 400px;
+}
+
+.about-letter {
   position: relative;
-  font-family: "Playfair Display", serif;
-  font-size: 3rem;
-  color: #77674f;
-  text-align: center;
-  line-height: 1.3;
+  z-index: 2;
+  color: var(--accent);
+  font-size: 12rem;
+  font-weight: 900;
+  letter-spacing: -.1em;
+}
+
+.about-caption {
+  position: absolute;
+  bottom: 22px;
+  left: 25px;
+  color: #c5cbb7;
+  font-family: "DM Mono", monospace;
+  font-size: .7rem;
+}
+
+.about-text .small-label {
+  color: var(--accent);
+  font-family: "DM Mono", monospace;
+  font-size: .75rem;
 }
 
 .about-text h3 {
-  font-size: 1.45rem;
-  margin-top: 0;
-  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1.6;
+  margin: 17px 0 25px;
+  letter-spacing: -.04em;
 }
 
 .about-text p {
-  color: var(--muted);
-  font-size: .9rem;
+  color: #a4a99e;
+  font-size: .87rem;
+  line-height: 2.2;
+  margin-bottom: 17px;
 }
 
-.about-detail {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  border-bottom: 1px solid var(--line);
-  padding: 12px 0;
-  font-size: .85rem;
-}
-
-.about-detail span:first-child {
-  color: var(--accent);
-  font-weight: 600;
-}
-
-/* INTEREST */
-.interest {
-  margin-top: 55px;
-  padding-top: 30px;
+.profile-list {
+  margin-top: 35px;
   border-top: 1px solid var(--line);
 }
 
-.interest h3 {
-  font-size: 1rem;
-}
-
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.tag {
-  border: 1px solid #c9c3b7;
-  padding: 7px 17px;
+.profile-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
   font-size: .8rem;
-  color: #6d624f;
+}
+
+.profile-row span:first-child {
+  color: var(--accent);
+  font-family: "DM Mono", monospace;
 }
 
 /* SKILLS */
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
-.skill-item {
-  padding: 32px 25px;
-  background: var(--white);
-  border-top: 3px solid #9b896d;
+.skill-card {
+  padding: 40px 30px;
+  border-right: 1px solid var(--line);
+  transition: background .3s;
 }
 
-.skill-number {
+.skill-card:last-child {
+  border-right: none;
+}
+
+.skill-card:hover {
+  background: var(--surface);
+}
+
+.skill-icon {
+  font-size: 2rem;
   color: var(--accent);
-  font-family: "Playfair Display", serif;
-  font-size: 1.8rem;
+  margin-bottom: 35px;
 }
 
-.skill-item h3 {
-  font-size: 1rem;
-  margin: 10px 0;
-}
-
-.skill-item p {
+.skill-num {
   color: var(--muted);
-  font-size: .83rem;
-  margin-bottom: 0;
+  font-family: "DM Mono", monospace;
+  font-size: .72rem;
+}
+
+.skill-card h3 {
+  font-size: 1.25rem;
+  margin: 12px 0;
+}
+
+.skill-card p {
+  color: var(--muted);
+  font-size: .8rem;
+  min-height: 65px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+.skill-tags span {
+  color: #c6cabe;
+  border: 1px solid var(--line);
+  padding: 5px 10px;
+  font-size: .68rem;
+  font-family: "DM Mono", monospace;
+}
+
+.tech-stack {
+  margin-top: 50px;
+}
+
+.tech-stack h3 {
+  font-family: "DM Mono", monospace;
+  color: var(--muted);
+  font-size: .75rem;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-list span {
+  padding: 9px 17px;
+  background: var(--surface);
+  color: #d3d6cc;
+  font-size: .78rem;
+  border-radius: 2px;
 }
 
 /* WORKS */
+
 #works {
-  background: #eae7df;
+  background: #1b1e1a;
 }
 
 .works-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px 28px;
 }
 
 .work-card {
-  background: var(--white);
-  transition: transform .3s;
+  min-width: 0;
 }
 
-.work-card:hover {
-  transform: translateY(-6px);
+.work-card.featured {
+  grid-column: span 2;
 }
 
-.work-visual {
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.work-image {
+  position: relative;
+  height: 310px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .4s;
 }
 
-.work-visual.research {
-  background: #dce2dc;
+.featured .work-image {
+  height: 420px;
 }
 
-.work-visual.game {
-  background: #d9d5c9;
+.work-card:hover .work-image {
+  filter: brightness(1.12);
 }
 
-.work-visual.web {
-  background: #dce1e7;
+.research-image {
+  background:
+    radial-gradient(circle at 70% 30%, #758a62, transparent 35%),
+    linear-gradient(135deg, #29372c, #17211b);
 }
 
-.work-visual.media {
-  background: #e6dcd2;
+.game-image {
+  background:
+    linear-gradient(140deg, #a7a38d, #555b4b 55%, #252c25);
 }
 
-.work-symbol {
-  font-family: "Playfair Display", serif;
-  font-size: 4rem;
-  color: rgba(50,50,40,.65);
-  letter-spacing: .05em;
+.web-image {
+  background:
+    linear-gradient(135deg, #354452, #718493);
+}
+
+.media-image {
+  background:
+    radial-gradient(circle at 50% 45%, #c2a47d, transparent 40%),
+    linear-gradient(135deg, #463d36, #201d1a);
+}
+
+.work-art {
+  position: relative;
+  z-index: 2;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  letter-spacing: -.08em;
+  color: rgba(255,255,255,.86);
+  text-align: center;
+  line-height: 1.1;
+}
+
+.work-art span {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: .75rem;
+  letter-spacing: .2em;
+  margin-top: 18px;
+  color: var(--accent);
+}
+
+.research-image::before {
+  content: "∑";
+  position: absolute;
+  right: 10%;
+  top: 0;
+  font-size: 18rem;
+  color: rgba(216,243,106,.1);
+  font-family: serif;
+}
+
+.game-image::before {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 65%;
+  border: 1px solid rgba(255,255,255,.25);
+  transform: perspective(300px) rotateX(50deg) rotateZ(-10deg);
+}
+
+.game-image::after {
+  content: "01 — 04";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-family: "DM Mono", monospace;
+}
+
+.web-image::before {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 70%;
+  border: 1px solid rgba(255,255,255,.3);
+  background: linear-gradient(120deg, transparent 50%, rgba(255,255,255,.12) 50%);
+}
+
+.media-image::before {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+  box-shadow: 0 0 0 30px rgba(255,255,255,.04),
+              0 0 0 60px rgba(255,255,255,.03);
+}
+
+.work-overlay {
+  position: absolute;
+  bottom: 18px;
+  right: 20px;
+  font-family: "DM Mono", monospace;
+  color: rgba(255,255,255,.65);
+  font-size: .7rem;
 }
 
 .work-info {
-  padding: 27px 30px 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid #44483e;
 }
 
-.work-label {
+.work-category {
   color: var(--accent);
-  font-size: .72rem;
-  letter-spacing: .17em;
-  font-weight: 700;
+  font-family: "DM Mono", monospace;
+  font-size: .68rem;
+  letter-spacing: .1em;
 }
 
 .work-info h3 {
   font-size: 1.2rem;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .work-info p {
+  max-width: 480px;
   color: var(--muted);
-  font-size: .85rem;
-  margin: 0;
+  font-size: .8rem;
+  line-height: 2;
+}
+
+.work-arrow {
+  align-self: center;
+  color: var(--accent);
+  font-size: 1.5rem;
+  transition: .3s;
+}
+
+.work-card:hover .work-arrow {
+  transform: translate(5px, -5px);
 }
 
 /* CONTACT */
-#contact {
-  padding: 110px 0;
+
+.contact-section {
+  padding: 130px 0;
 }
 
-.contact-inner {
-  text-align: center;
-  background: var(--dark);
-  color: white;
-  padding: 75px 25px;
-}
-
-.contact-inner .section-en {
-  color: #c8b99f;
-}
-
-.contact-inner h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 2.8rem;
-  font-weight: 500;
-  margin: 10px 0;
-}
-
-.contact-inner p {
-  color: #d0cec7;
-  font-size: .85rem;
-  margin-bottom: 30px;
-}
-
-.contact-inner .button {
-  background: #f5f3ee;
+.contact-box {
+  position: relative;
+  overflow: hidden;
+  padding: 85px 70px;
+  background: var(--accent);
   color: var(--dark);
 }
 
-.contact-inner .button:hover {
-  background: #c8b99f;
+.contact-box::after {
+  content: "KT.";
+  position: absolute;
+  right: -20px;
+  bottom: -140px;
+  font-size: 23rem;
+  font-weight: 900;
+  letter-spacing: -.1em;
+  color: rgba(21,23,21,.07);
+  pointer-events: none;
+}
+
+.contact-label {
+  font-family: "DM Mono", monospace;
+  font-size: .75rem;
+}
+
+.contact-box h2 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -.09em;
+  line-height: 1;
+  margin: 25px 0;
+}
+
+.contact-box p {
+  font-size: .85rem;
+  margin-bottom: 35px;
+}
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  padding: 15px 22px;
+  background: var(--dark);
+  color: white;
+  font-size: .78rem;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.contact-button:hover {
+  background: white;
+  color: var(--dark);
 }
 
 /* FOOTER */
+
 footer {
-  border-top: 1px solid var(--line);
   padding: 30px 0;
+  border-top: 1px solid var(--line);
 }
 
 .footer-inner {
@@ -480,118 +746,230 @@ footer {
   align-items: center;
 }
 
-.footer-brand {
-  font-family: "Playfair Display", serif;
-  font-size: 1.1rem;
+.footer-logo {
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+.footer-logo span {
+  color: var(--accent);
 }
 
 footer p {
+  font-family: "DM Mono", monospace;
   color: var(--muted);
-  font-size: .75rem;
+  font-size: .68rem;
 }
 
 /* ANIMATION */
-.fade-in {
+
+.reveal {
   opacity: 0;
-  transform: translateY(25px);
-  transition: opacity .8s, transform .8s;
+  transform: translateY(35px);
+  transition: opacity .8s ease, transform .8s ease;
 }
 
-.fade-in.show {
+.reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
+.hero h1 {
+  animation: heroIn 1s ease both;
+}
+
+.hero-description,
+.hero-links {
+  animation: heroIn 1s .2s ease both;
+}
+
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* MOBILE */
-@media (max-width: 750px) {
+
+@media (max-width: 800px) {
   .wrap {
-    width: calc(100% - 36px);
+    width: calc(100% - 40px);
   }
 
   .nav {
-    height: auto;
-    min-height: 70px;
-    flex-direction: column;
-    justify-content: center;
-    padding: 12px 0;
-    gap: 8px;
+    height: 70px;
   }
 
   nav {
-    gap: 18px;
-    font-size: .75rem;
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: .65rem;
+  }
+
+  .nav-contact {
+    padding: 5px 8px;
   }
 
   .hero {
-    grid-template-columns: 1fr;
-    gap: 35px;
-    padding-top: 65px;
+    min-height: auto;
+    padding-top: 175px;
+    padding-bottom: 100px;
   }
 
   .hero h1 {
-    font-size: 4rem;
+    font-size: clamp(3.8rem, 12vw, 7rem);
   }
 
-  .hero-visual {
-    height: 330px;
+  .hero-decoration {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+    right: 5%;
+    top: 120px;
   }
 
-  .visual-content .symbol {
-    font-size: 7rem;
+  .hero-bottom {
+    flex-direction: column;
+    align-items: start;
+    margin-top: 45px;
   }
 
-  section {
-    padding: 70px 0;
+  .hero-description {
+    max-width: 100%;
   }
 
-  .section-title {
-    font-size: 2.1rem;
+  .section-top {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .section-note {
+    max-width: 450px;
   }
 
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 45px;
   }
 
   .about-visual {
-    min-height: 280px;
+    min-height: 350px;
   }
 
   .skills-grid {
     grid-template-columns: 1fr;
   }
 
+  .skill-card {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .skill-card p {
+    min-height: 0;
+  }
+
   .works-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
-  .work-visual {
-    height: 210px;
+  .work-card.featured {
+    grid-column: auto;
   }
 
-  .contact-inner {
-    padding: 55px 18px;
+  .work-image,
+  .featured .work-image {
+    height: 280px;
   }
 
-  .contact-inner h2 {
-    font-size: 2.2rem;
+  .contact-box {
+    padding: 65px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrap {
+    width: calc(100% - 32px);
+  }
+
+  .logo {
+    font-size: .95rem;
+  }
+
+  nav {
+    gap: 11px;
+  }
+
+  nav a {
+    font-size: .59rem;
+  }
+
+  .hero h1 {
+    font-size: 3.55rem;
+  }
+
+  .hero-top {
+    align-items: start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero h1 .second {
+    gap: 10px;
+  }
+
+  section {
+    padding: 85px 0;
+  }
+
+  .section-title {
+    font-size: 3.1rem;
+  }
+
+  .about-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .profile-row {
+    grid-template-columns: 85px 1fr;
+  }
+
+  .work-info h3 {
+    font-size: 1rem;
+  }
+
+  .work-info p {
+    font-size: .75rem;
+  }
+
+  .contact-box {
+    padding: 55px 22px;
   }
 
   .footer-inner {
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
   }
 
-  .fade-in {
+  .reveal {
     opacity: 1;
     transform: none;
-    transition: none;
   }
 }
 </style>
@@ -602,292 +980,382 @@ footer p {
 <!-- HEADER -->
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top">Kousei Takasu</a>
+    <a href="#top" class="logo">KT<span>.</span> PORTFOLIO</a>
 
-    <nav aria-label="メインナビゲーション">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#works">Works</a>
-      <a href="#contact">Contact</a>
+    <nav>
+      <a href="#about">ABOUT</a>
+      <a href="#skills">SKILLS</a>
+      <a href="#works">WORKS</a>
+      <a href="#contact" class="nav-contact">CONTACT ↗</a>
     </nav>
   </div>
 </header>
 
-<main id="top">
+<main>
 
-  <!-- HERO -->
-  <div class="wrap hero">
+<!-- HERO -->
+<div class="wrap hero" id="top">
 
-    <div class="hero-text">
-      <div class="hero-label">WELCOME TO MY PORTFOLIO</div>
+  <div class="hero-decoration">✳</div>
 
-      <h1>
-        Kousei
-        <span>Takasu.</span>
-      </h1>
+  <div class="hero-top">
+    <div class="hero-label">CREATIVE PORTFOLIO / 2026</div>
+    <div class="hero-status">BASED IN JAPAN — AVAILABLE TO EXPLORE</div>
+  </div>
 
-      <h2>Creating ideas, shaping the future.</h2>
+  <h1>
+    KOUSEI
+    <span class="second">
+      <span class="outline">TAKASU</span><span class="dot">.</span>
+    </span>
+  </h1>
 
-      <p class="hero-description">
-        Webサイト開発やゲーム制作、3DCGなど、
-        さまざまな技術を使ったものづくりに取り組んでいます。
-        アイデアを形にし、使う人にとって分かりやすい
-        作品を制作することを大切にしています。
-      </p>
+  <div class="hero-bottom">
 
-      <a href="#works" class="button">
-        VIEW MY WORKS <span>→</span>
+    <p class="hero-description">
+      <strong>Ideas into reality.</strong><br>
+      Web Development, 3DCG, AI and Game Development.
+      技術とアイデアを組み合わせ、
+      人に伝わるものづくりを目指しています。
+    </p>
+
+    <div class="hero-links">
+      <a href="#works" class="primary-button">
+        EXPLORE WORKS <span>↗</span>
       </a>
-    </div>
-
-    <div class="hero-visual">
-      <div class="visual-content">
-        <div class="symbol">K</div>
-        <p>DESIGN & CREATION</p>
-      </div>
-      <div class="visual-number">PORTFOLIO / 2026</div>
     </div>
 
   </div>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap fade-in">
+</div>
 
-      <div class="section-heading">
-        <div class="section-en">01 / ABOUT</div>
-        <h2 class="section-title">About Me</h2>
-        <div class="section-subtitle">私について</div>
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-inner">
+    <span>DESIGN ✳ DEVELOPMENT ✳ CREATIVITY ✳ INNOVATION ✳</span>
+    <span>DESIGN ✳ DEVELOPMENT ✳ CREATIVITY ✳ INNOVATION ✳</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap reveal">
+
+    <div class="section-top">
+      <div>
+        <div class="section-index">01 — WHO I AM</div>
+        <h2 class="section-title">About<span>.</span></h2>
+        <p class="section-jp">自分について</p>
       </div>
 
-      <div class="about-grid">
+      <p class="section-note">
+        自分のアイデアを形にする。
+        そして、使う人の立場に立って考える。
+        それが私のものづくりの基本です。
+      </p>
+    </div>
 
-        <div class="about-visual">
-          <p>Ideas<br>into<br>Reality.</p>
-        </div>
+    <div class="about-grid">
 
-        <div class="about-text">
-          <h3>こんにちは、高須 弘政です。</h3>
+      <div class="about-visual">
+        <div class="about-letter">K.</div>
+        <div class="about-caption">KOUSEI TAKASU / CREATOR</div>
+      </div>
 
-          <p>
-            メディア情報専攻でプログラミングを学びながら、
-            Webサイト開発や3DCG、ゲーム制作などに
-            取り組んでいます。
-          </p>
+      <div class="about-text">
+        <div class="small-label">HELLO, I'M KOUSEI.</div>
 
-          <p>
-            制作するときは、自分だけでなく、
-            初めて触れる人にも内容が伝わることを
-            大切にしています。
-          </p>
+        <h3>
+          技術を学び、<br>
+          アイデアを形にする。
+        </h3>
 
-          <p>
-            新しい技術を学びながら、自分のアイデアを
-            実際に形にしていくことに面白さを感じています。
-          </p>
+        <p>
+          こんにちは、高須 弘政です。
+          メディア情報専攻でプログラミングを学びながら、
+          Webサイト開発や3DCG、ゲーム制作などに取り組んでいます。
+        </p>
 
-          <div class="about-detail">
-            <span>Name</span>
+        <p>
+          制作するときに大切にしているのは、
+          自分だけでなく、初めて触れる人にも
+          内容が伝わるものを作ることです。
+        </p>
+
+        <p>
+          新しい技術に挑戦しながら、
+          自分なりのアイデアを実際の形にしていくことに
+          面白さを感じています。
+        </p>
+
+        <div class="profile-list">
+          <div class="profile-row">
+            <span>NAME</span>
             <span>Kousei Takasu</span>
           </div>
-
-          <div class="about-detail">
-            <span>Major</span>
+          <div class="profile-row">
+            <span>FIELD</span>
             <span>Media Information</span>
           </div>
-
-          <div class="about-detail">
-            <span>Interest</span>
+          <div class="profile-row">
+            <span>INTEREST</span>
             <span>Web / 3DCG / AI / Game</span>
           </div>
         </div>
-
       </div>
 
-      <div class="interest">
-        <h3>INTEREST</h3>
-        <div class="tag-list">
-          <span class="tag">Web Development</span>
-          <span class="tag">3DCG</span>
-          <span class="tag">AI / NLP</span>
-          <span class="tag">Game Development</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap reveal">
+
+    <div class="section-top">
+      <div>
+        <div class="section-index">02 — WHAT I DO</div>
+        <h2 class="section-title">Skills<span>.</span></h2>
+        <p class="section-jp">学習・制作で使用している技術</p>
+      </div>
+
+      <p class="section-note">
+        さまざまな技術を組み合わせながら、
+        表現できることの幅を広げています。
+      </p>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon">⌘</div>
+        <div class="skill-num">01 / DEVELOPMENT</div>
+        <h3>Web Development</h3>
+        <p>
+          Web技術を使い、情報を整理して
+          見やすく使いやすいページを制作します。
+        </p>
+        <div class="skill-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">⌁</div>
+        <div class="skill-num">02 / PROGRAMMING</div>
+        <h3>Programming & AI</h3>
+        <p>
+          プログラミングやAIを活用した
+          システム開発・研究に取り組んでいます。
+        </p>
+        <div class="skill-tags">
+          <span>Python</span>
+          <span>C++</span>
+          <span>OpenCV</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">◈</div>
+        <div class="skill-num">03 / CREATIVE</div>
+        <h3>Creative & 3D</h3>
+        <p>
+          ゲーム制作や3DCGなど、
+          デジタル技術を使った表現を学んでいます。
+        </p>
+        <div class="skill-tags">
+          <span>Unity</span>
+          <span>3DCG</span>
+          <span>Game</span>
         </div>
       </div>
 
     </div>
-  </section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="wrap fade-in">
-
-      <div class="section-heading">
-        <div class="section-en">02 / SKILLS</div>
-        <h2 class="section-title">Skills</h2>
-        <div class="section-subtitle">学習・制作で使用している技術</div>
+    <div class="tech-stack">
+      <h3>TECHNOLOGY STACK / TOOLS</h3>
+      <div class="tech-list">
+        <span>HTML / CSS</span>
+        <span>JavaScript</span>
+        <span>Python</span>
+        <span>C++</span>
+        <span>Unity</span>
+        <span>OpenCV</span>
+        <span>3DCG</span>
       </div>
-
-      <div class="skills-grid">
-
-        <div class="skill-item">
-          <div class="skill-number">01</div>
-          <h3>Web Development</h3>
-          <p>
-            HTML / CSS / JavaScriptを使用した
-            Webサイトの制作。
-          </p>
-        </div>
-
-        <div class="skill-item">
-          <div class="skill-number">02</div>
-          <h3>Programming</h3>
-          <p>
-            PythonやC++を使用した
-            プログラミング・システム開発。
-          </p>
-        </div>
-
-        <div class="skill-item">
-          <div class="skill-number">03</div>
-          <h3>Creative</h3>
-          <p>
-            Unityや3DCG、OpenCVなどを使用した
-            デジタルコンテンツ制作。
-          </p>
-        </div>
-
-      </div>
-
-      <div class="interest">
-        <h3>TECHNOLOGY</h3>
-        <div class="tag-list">
-          <span class="tag">HTML / CSS</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Python</span>
-          <span class="tag">C++</span>
-          <span class="tag">Unity</span>
-          <span class="tag">OpenCV</span>
-          <span class="tag">3DCG</span>
-        </div>
-      </div>
-
     </div>
-  </section>
 
-  <!-- WORKS -->
-  <section id="works">
-    <div class="wrap fade-in">
+  </div>
+</section>
 
-      <div class="section-heading">
-        <div class="section-en">03 / WORKS</div>
-        <h2 class="section-title">Selected Works</h2>
-        <div class="section-subtitle">制作・研究の一部をご紹介します</div>
+<!-- WORKS -->
+<section id="works">
+  <div class="wrap reveal">
+
+    <div class="section-top">
+      <div>
+        <div class="section-index">03 — SELECTED PROJECTS</div>
+        <h2 class="section-title">Works<span>.</span></h2>
+        <p class="section-jp">制作物・研究の紹介</p>
       </div>
 
-      <div class="works-grid">
+      <p class="section-note">
+        学習や研究を通して制作した作品。
+        それぞれの制作過程で得た経験を紹介します。
+      </p>
+    </div>
 
-        <article class="work-card">
-          <div class="work-visual research">
-            <div class="work-symbol">Research</div>
+    <div class="works-grid">
+
+      <!-- RESEARCH -->
+      <article class="work-card featured">
+        <div class="work-image research-image">
+          <div class="work-art">
+            MATH × AI
+            <span>RESEARCH PROJECT / NLP</span>
           </div>
-          <div class="work-info">
-            <div class="work-label">RESEARCH / NLP</div>
+          <div class="work-overlay">PROJECT 01 / RESEARCH</div>
+        </div>
+
+        <div class="work-info">
+          <div>
+            <div class="work-category">01 / RESEARCH & NLP</div>
             <h3>数学解説データセットの構築</h3>
             <p>
-              数学の問題と解答から、学習に役立つ解説を生成し、
+              数学の問題と解答から、LLMを用いて解説を生成し、
               数学解説データセットの構築に取り組んでいます。
-              LLMを活用した解説生成の品質向上を目指しています。
+              学習に役立つ、分かりやすい解説の実現を目指しています。
             </p>
           </div>
-        </article>
+          <div class="work-arrow">↗</div>
+        </div>
+      </article>
 
-        <article class="work-card">
-          <div class="work-visual game">
-            <div class="work-symbol">Unity Cart</div>
+      <!-- UNITY -->
+      <article class="work-card">
+        <div class="work-image game-image">
+          <div class="work-art">
+            UNITY
+            <span>GAME DEVELOPMENT</span>
           </div>
-          <div class="work-info">
-            <div class="work-label">GAME DEVELOPMENT</div>
+          <div class="work-overlay">PROJECT 02</div>
+        </div>
+
+        <div class="work-info">
+          <div>
+            <div class="work-category">02 / GAME DEVELOPMENT</div>
             <h3>Unity Cart</h3>
             <p>
-              Unityを使用したレースゲームです。
+              Unityを使用したレースゲーム。
               加速パネルや減速エリアを取り入れ、
-              操作によるスピードの変化を楽しめる作品を制作しました。
+              スピードの変化を楽しめる作品を制作しました。
             </p>
           </div>
-        </article>
+          <div class="work-arrow">↗</div>
+        </div>
+      </article>
 
-        <article class="work-card">
-          <div class="work-visual web">
-            <div class="work-symbol">Web Design</div>
+      <!-- WEB -->
+      <article class="work-card">
+        <div class="work-image web-image">
+          <div class="work-art">
+            WEB
+            <span>DESIGN & DEVELOPMENT</span>
           </div>
-          <div class="work-info">
-            <div class="work-label">WEB DEVELOPMENT</div>
+          <div class="work-overlay">PROJECT 03</div>
+        </div>
+
+        <div class="work-info">
+          <div>
+            <div class="work-category">03 / WEB DEVELOPMENT</div>
             <h3>Webサイト制作</h3>
             <p>
-              HTMLやCSSなどを使用し、
+              HTMLやCSSを使用し、
               情報を整理して見やすく伝える
               Webページの制作に取り組んでいます。
             </p>
           </div>
-        </article>
+          <div class="work-arrow">↗</div>
+        </div>
+      </article>
 
-        <article class="work-card">
-          <div class="work-visual media">
-            <div class="work-symbol">3D / Media</div>
+      <!-- 3DCG -->
+      <article class="work-card">
+        <div class="work-image media-image">
+          <div class="work-art">
+            3D
+            <span>CG & DIGITAL MEDIA</span>
           </div>
-          <div class="work-info">
-            <div class="work-label">3D / MEDIA</div>
+          <div class="work-overlay">PROJECT 04</div>
+        </div>
+
+        <div class="work-info">
+          <div>
+            <div class="work-category">04 / 3D & MEDIA</div>
             <h3>3DCG・メディア制作</h3>
             <p>
-              3DCGをはじめとするデジタル表現について学び、
+              3DCGをはじめとするデジタル表現を学び、
               さまざまな制作方法を試しながら
               表現の幅を広げています。
             </p>
           </div>
-        </article>
+          <div class="work-arrow">↗</div>
+        </div>
+      </article>
 
-      </div>
     </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="contact-inner fade-in">
-        <div class="section-en">04 / CONTACT</div>
-        <h2>Thank You.</h2>
-        <p>
-          最後までご覧いただきありがとうございます。
-          <br>
-          これからもさまざまなものづくりに挑戦していきます。
-        </p>
-        <a href="#top" class="button">
-          BACK TO TOP <span>↑</span>
-        </a>
-      </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="wrap reveal">
+
+    <div class="contact-box">
+      <div class="contact-label">04 — GET IN TOUCH</div>
+
+      <h2>
+        THANK<br>
+        YOU<span style="color:#f2f1e9">.</span>
+      </h2>
+
+      <p>
+        最後までご覧いただきありがとうございます。<br>
+        これからも新しい技術や表現に挑戦していきます。
+      </p>
+
+      <a href="#top" class="contact-button">
+        BACK TO TOP <span>↑</span>
+      </a>
     </div>
-  </section>
+
+  </div>
+</section>
 
 </main>
 
 <!-- FOOTER -->
 <footer>
   <div class="wrap footer-inner">
-    <div class="footer-brand">Kousei Takasu</div>
-    <p>© <span id="year"></span> KOUSEI TAKASU. All Rights Reserved.</p>
+    <div class="footer-logo">KT<span>.</span> PORTFOLIO</div>
+    <p>© <span id="year"></span> KOUSEI TAKASU / ALL RIGHTS RESERVED.</p>
   </div>
 </footer>
 
 <script>
-  // 年号を自動表示
+  // 年号の自動更新
   document.getElementById("year").textContent =
     new Date().getFullYear();
 
-  // スクロール時のフェードイン
+  // スクロール時の表示アニメーション
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("show");
+        entry.target.classList.add("visible");
         observer.unobserve(entry.target);
       }
     });
@@ -895,7 +1363,7 @@ footer p {
     threshold: 0.12
   });
 
-  document.querySelectorAll(".fade-in").forEach(element => {
+  document.querySelectorAll(".reveal").forEach(element => {
     observer.observe(element);
   });
 </script>
