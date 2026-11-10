@@ -360,13 +360,33 @@
     }
 
     .work-image {
-      height: 240px;
+      height: 260px;
       background: var(--light-blue);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .work-card:hover .work-image img {
+      transform: scale(1.04);
+    }
+
+    /* 画像がまだ設定されていない場合の表示 */
+    .work-image-placeholder {
+      width: 100%;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--blue);
-      font-size: 35px;
+      font-size: 25px;
       font-weight: 800;
       letter-spacing: 2px;
     }
@@ -728,6 +748,17 @@
     </div>
   </section>
 
+  <!--
+    【制作実績の画像設定方法】
+    images フォルダをHTMLファイルと同じ場所に作成し、
+    以下の名前で画像を保存してください。
+      unity-cart.jpg  : Unity Cartの画像
+      math-ai.jpg     : 数学解説システムの画像
+      web-design.jpg  : Webサイト制作の画像
+      3dcg.jpg        : 3DCG作品の画像
+    画像を別の名前にする場合は、各 img タグの src も変更してください。
+  -->
+
   <!-- WORKS -->
   <section id="works">
     <div class="container">
@@ -739,7 +770,9 @@
 
         <div class="work-card reveal">
           <div class="work-image">
-            UNITY CART
+            <img src="images/unity-cart.jpg" alt="Unity Cartのゲーム画面"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="work-image-placeholder" style="display:none;">UNITY CART</div>
           </div>
           <div class="work-info">
             <span class="work-category">GAME DEVELOPMENT</span>
@@ -754,7 +787,9 @@
 
         <div class="work-card reveal">
           <div class="work-image">
-            MATH × AI
+            <img src="images/math-ai.jpg" alt="数学解説システムの画面"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="work-image-placeholder" style="display:none;">MATH × AI</div>
           </div>
           <div class="work-info">
             <span class="work-category">AI DEVELOPMENT</span>
@@ -769,7 +804,9 @@
 
         <div class="work-card reveal">
           <div class="work-image">
-            WEB DESIGN
+            <img src="images/web-design.jpg" alt="制作したWebサイトの画面"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="work-image-placeholder" style="display:none;">WEB DESIGN</div>
           </div>
           <div class="work-info">
             <span class="work-category">WEB DEVELOPMENT</span>
@@ -784,7 +821,9 @@
 
         <div class="work-card reveal">
           <div class="work-image">
-            3D GRAPHICS
+            <img src="images/3dcg.jpg" alt="制作した3DCG作品"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="work-image-placeholder" style="display:none;">3D GRAPHICS</div>
           </div>
           <div class="work-info">
             <span class="work-category">3D CREATION</span>
